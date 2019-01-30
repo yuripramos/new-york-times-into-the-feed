@@ -1,0 +1,6 @@
+{
+  "TEMPERATURE": "°c",
+  "TEMPERATURE_MIN": "°c",
+  "WIND_SPEED": "m/s",
+  "VISIBILITY": "km"
+}

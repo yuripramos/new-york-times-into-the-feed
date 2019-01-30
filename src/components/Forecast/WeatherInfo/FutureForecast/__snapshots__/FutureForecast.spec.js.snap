@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FutureForecast Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.div>
+          <styled.div
+            key="0"
+          >
+            <styled.span>
+              Friday
+            </styled.span>
+            <styled.div>
+              <IconGenerator
+                height="70px"
+                name="clear-day"
+                width="70px"
+              />
+            </styled.div>
+            <styled.span>
+              25 undefined
+               
+            </styled.span>
+            <styled.span
+              tiny={true}
+            >
+              8 undefined
+               
+            </styled.span>
+          </styled.div>
+          <styled.div
+            key="1"
+          >
+            <styled.span>
+              Friday
+            </styled.span>
+            <styled.div>
+              <IconGenerator
+                height="70px"
+                name="clear-day"
+                width="70px"
+              />
+            </styled.div>
+            <styled.span>
+              25 undefined
+               
+            </styled.span>
+            <styled.span
+              tiny={true}
+            >
+              8 undefined
+               
+            </styled.span>
+          </styled.div>
+        </styled.div>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

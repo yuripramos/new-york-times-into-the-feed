@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules
+jspm_packages
+static
+coverage
+package-lock.json
+#Photoshop Files
+psd/
+*.zip

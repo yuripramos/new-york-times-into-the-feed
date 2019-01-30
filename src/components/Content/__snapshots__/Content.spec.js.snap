@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.h1>
+          An title
+        </styled.h1>
+        <styled.h2>
+          subtitle
+        </styled.h2>
+        <Button
+          className={null}
+          disabled={false}
+          isCallToAction={true}
+          loading={false}
+          onClick={null}
+          opacity={1}
+          to="/forecast"
+          type="button"
+          width={null}
+        >
+          start
+        </Button>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

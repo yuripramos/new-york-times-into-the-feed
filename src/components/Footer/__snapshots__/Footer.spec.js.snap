@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should match snapshot 1`] = `
+<styled.div>
+  <Container>
+    <Row />
+    <Row>
+      <Column>
+        <styled.div>
+          made with 💛 by Yuri Ramos
+        </styled.div>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

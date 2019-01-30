@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should match snapshot 1`] = `
+<styled.button
+  disabled={false}
+  loading={false}
+  onClick={null}
+  type="button"
+  width={null}
+>
+  Text
+</styled.button>
+`;
+
+exports[`Button component should render an "button" tag 1`] = `
+<styled.button
+  disabled={false}
+  loading={false}
+  onClick={null}
+  type="button"
+  width={null}
+>
+  Text
+</styled.button>
+`;
+
+exports[`Button component should render different types 1`] = `
+<styled.button
+  disabled={false}
+  loading={false}
+  onClick={null}
+  type="submit"
+  width={null}
+>
+  Text
+</styled.button>
+`;
+
+exports[`Button component should render different widths 1`] = `
+<styled.button
+  disabled={false}
+  loading={false}
+  onClick={null}
+  type="button"
+  width="100"
+>
+  Text
+</styled.button>
+`;
+
+exports[`Button component should render disabled class when disabled is truthy 1`] = `
+<styled.button
+  disabled={true}
+  loading={false}
+  onClick={null}
+  type="button"
+  width={null}
+>
+  Text
+</styled.button>
+`;
+
+exports[`Button component should render highlighted class when isCallToAction is truthy 1`] = `
+<styled.button
+  disabled={false}
+  loading={false}
+  onClick={null}
+  type="button"
+  width={null}
+>
+  Text
+</styled.button>
+`;

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeMachineForecast Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.div>
+          <styled.div
+            key="0"
+            tiny={true}
+          >
+            <styled.span
+              tiny={true}
+            >
+              01/01/2010
+            </styled.span>
+            <styled.div>
+              <IconGenerator
+                height="50px"
+                name="fog"
+                width="50px"
+              />
+            </styled.div>
+            <styled.span
+              tiny={true}
+            >
+              20 undefined
+               
+            </styled.span>
+          </styled.div>
+          <styled.div
+            key="1"
+            tiny={true}
+          >
+            <styled.span
+              tiny={true}
+            >
+              01/01/2010
+            </styled.span>
+            <styled.div>
+              <IconGenerator
+                height="50px"
+                name="snow"
+                width="50px"
+              />
+            </styled.div>
+            <styled.span
+              tiny={true}
+            >
+              -10 undefined
+               
+            </styled.span>
+          </styled.div>
+        </styled.div>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

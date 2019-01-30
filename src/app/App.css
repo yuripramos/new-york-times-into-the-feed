@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'OpenSans Thin';
+  src:  url("../assets/fonts/OpenSans/OpenSans-Light.woff2") format('woff2'),
+        url('../assets/fonts/OpenSans/OpenSans-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'OpenSans Regular';
+  src:  url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format('woff2'),
+        url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'RobotoSlab Regular';
+  src:  url("../assets/fonts/Roboto/RobotoSlab-Regular.woff2") format('woff2'),
+        url('../assets/fonts/Roboto/RobotoSlab-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'RobotoSlab Thin';
+  src:  url("../assets/fonts/Roboto/RobotoSlab-Thin.woff2") format('woff2'),
+        url('../assets/fonts/Roboto/RobotoSlab-Thin.woff') format('woff');
+}
+@font-face {
+  font-family: 'Helveticaneue Thin';
+  src:  url("../assets/fonts/Helveticaneue/helveticaneue.woff2") format('woff2'),
+        url('../assets/fonts/Helveticaneue/helveticaneue.woff') format('woff');
+}
+
+
+html {
+  min-height: 100%;
+  position: relative;
+  color: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  min-height: 100%;
+  background: #986cef
+}

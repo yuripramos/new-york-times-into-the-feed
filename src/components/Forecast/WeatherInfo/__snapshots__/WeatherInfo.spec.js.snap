@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FutureForecast Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.div>
+          one city
+        </styled.div>
+        <styled.div>
+          <styled.div>
+            <styled.div>
+              <IconGenerator
+                height="170px"
+                name="clear-day"
+                width="170px"
+              />
+            </styled.div>
+            <styled.h1>
+               
+              33
+               
+            </styled.h1>
+            <styled.span
+              tiny={true}
+            >
+              Apparent temperature
+              <styled.h1
+                tiny={true}
+              >
+                30
+              </styled.h1>
+            </styled.span>
+          </styled.div>
+          <styled.div>
+            <styled.span>
+              21 January, 2019
+            </styled.span>
+            <styled.span>
+              Amazing day, go to the beach
+            </styled.span>
+            <styled.span>
+               Wind: 
+              3
+               
+            </styled.span>
+            <styled.span>
+               Humidity: 
+              23
+               
+            </styled.span>
+          </styled.div>
+        </styled.div>
+        <FutureForecast
+          forecast={
+            Array [
+              Object {
+                "icon": "clear-night",
+                "temperatureHigh": 35,
+                "temperatureLow": 18,
+                "time": 2312321,
+              },
+              Object {
+                "icon": "clear-day",
+                "temperatureHigh": 25,
+                "temperatureLow": 8,
+                "time": 2314441,
+              },
+              Object {
+                "icon": "clear-day",
+                "temperatureHigh": 25,
+                "temperatureLow": 8,
+                "time": 231111141,
+              },
+            ]
+          }
+        />
+        <Button
+          className={null}
+          disabled={false}
+          loading={false}
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/forecast",
+              "search": "?time-machine-request&search=one city",
+            }
+          }
+          type="button"
+          width="180"
+        >
+          click here to 30-day past
+        </Button>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;
