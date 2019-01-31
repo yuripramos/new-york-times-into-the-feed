@@ -7,14 +7,14 @@
     "node": ">=8.9.3"
   },
   "scripts": {
-    "test": "set NODE_ENV=testing && jest",
+    "test": "cross-env NODE_ENV=testing && jest",
     "test:update": "npm run test -- -u",
     "test:coverage": "jest --coverage --runInBand",
     "start": "npm run dev",
     "lint": "eslint ./src --fix",
     "check": "npm run lint && npm run test",
-    "start:dev": "webpack --mode development",
-    "start:build": "webpack --mode production"
+    "start:dev": "webpack-dev-server --port 3002 --inline --hot",
+    "start:build": "cross-env NODE_ENV=production & webpack"
   },
   "author": "Yuri Ramos <yuri.pramos@gmail.com>",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "3.3.0",
+    "favicons-webpack-plugin": "0.0.9",
     "grid-styled": "^4.0.0",
     "history": "^4.7.2",
     "jest": "22.4.4",
@@ -48,7 +49,8 @@
     "redux-zero": "^4.13.6",
     "shortid": "^2.2.14",
     "sinon": "^7.2.3",
-    "styled-components": "^3.4.9"
+    "styled-components": "^3.4.9",
+    "webpack-dev-server": "^3.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
@@ -60,7 +62,9 @@
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-styled-components": "1.3.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "clean-webpack-plugin": "^1.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.26.1",
     "css-raw-loader": "^0.1.1",
     "eslint": "^4.13.1",
@@ -84,8 +88,9 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.9",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack": "3.9.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "resolutions": {
     "babel-core": "^7.0.0-bridge"

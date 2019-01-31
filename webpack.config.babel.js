@@ -1,70 +1,76 @@
 require("babel-polyfill");
 import path from "path";
-// import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import HtmlWebPackPlugin from "html-webpack-plugin";
 import MiniCSSExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 
-const CleanPlugin = new CleanWebpackPlugin(["static"]);
+const CleanPlugin = new CleanWebpackPlugin(["build"]);
 
 const HTMLPlugin = new HtmlWebPackPlugin({
+  inject: false,
+  hash: true,
   template: "./index.html",
   filename: "./index.html"
 });
 
 const DefinePlugin = new webpack.DefinePlugin({
   "process.env": {
-    NODE_ENV: JSON.stringify("development")
+    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
   },
   API_URL: JSON.stringify("https://api.darksky.net/forecast"),
   SECRET_KEY: JSON.stringify("1af3f94f02d94fb425b5eee315915259")
 });
 
 const MiniCSSExtractPluginCSS = new MiniCSSExtractPlugin({
-  filename: "style.[chunkhash].css",
+  filename: "style.[contenthash].css",
   chunkFilename: "[id].css"
 });
 
-// const FaviconPlugin = new FaviconsWebpackPlugin({
-//   logo: path.resolve(__dirname, "src/assets/images/favicon.png"),
-//   icons: {
-//     android: false,
-//     appleIcon: false,
-//     appleStartup: false,
-//     coast: false,
-//     favicons: true,
-//     firefox: false,
-//     opengraph: false,
-//     twitter: false,
-//     yandex: false,
-//     windows: false
-//   }
-// });
+const FaviconPlugin = new FaviconsWebpackPlugin({
+  logo: path.resolve(__dirname, "src/assets/images/favicon.png"),
+  icons: {
+    android: false,
+    appleIcon: false,
+    appleStartup: false,
+    coast: false,
+    favicons: true,
+    firefox: false,
+    opengraph: false,
+    twitter: false,
+    yandex: false,
+    windows: false
+  }
+});
+
+const nodeExternals = require("webpack-node-externals");
 
 const config = {
-  entry: "./src/app/index.js",
+  entry: { main: "./src/app/index.js" },
   output: {
-    path: path.resolve(__dirname, "static"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[chunkhash].js"
   },
+  target: "node",
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /.(js|jsx)?$/,
-        use: {
-          loader: "babel-loader"
-        },
+        test: /.js$/,
         exclude: /node_modules/,
-        options: {
-          presets: [
-            ["@babel/preset-env", { modules: false }],
-            "@babel/preset-react"
-          ],
-          plugins: [
-            "@babel/transform-object-rest-spread",
-            "@babel/transform-async-to-generator"
-          ]
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              ["@babel/preset-env", { modules: false }],
+              "@babel/preset-react"
+            ],
+            plugins: [
+              "@babel/plugin-proposal-object-rest-spread",
+              "@babel/plugin-transform-async-to-generator"
+            ]
+          }
         }
       },
       {
@@ -80,12 +86,7 @@ const config = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCSSExtractPlugin.loader,
-            options: {
-              // you can specify a publicPath here
-              // by default it use publicPath in webpackOptions.output
-              publicPath: path.resolve(__dirname, "static")
-            }
+            loader: MiniCSSExtractPlugin.loader
           },
           "css-loader"
         ]
@@ -96,7 +97,16 @@ const config = {
       }
     ]
   },
-  plugins: [CleanPlugin, DefinePlugin, MiniCSSExtractPluginCSS, HTMLPlugin],
+  devServer: {
+    historyApiFallback: true
+  },
+  plugins: [
+    CleanPlugin,
+    DefinePlugin,
+    FaviconPlugin,
+    MiniCSSExtractPluginCSS,
+    HTMLPlugin
+  ],
   devtool: "source-map"
 };
 
