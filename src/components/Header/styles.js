@@ -1,17 +1,17 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../styles/tools";
-import { white, lightpurple } from "../../styles/settings";
+import { white, grey40 } from "../../styles/settings";
 
 export const HeaderWrapper = styled.header`
-  height: ${rem(128)};
+  height: ${rem(88)};
   padding-top: ${rem(10)};
-  background: ${lightpurple};
+  background: ${grey40};
   text-align: center;
   ${media.md(css`
     text-align: center;
   `)};
   ${media.lg(css`
-    height: ${rem(200)};
+    height: ${rem(110)};
     padding-top: ${rem(6)};
   `)};
 `;

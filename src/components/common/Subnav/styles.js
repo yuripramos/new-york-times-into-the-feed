@@ -1,35 +1,13 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../../styles/tools";
-import {
-  white,
-  lightestBlue,
-  darkerBlue,
-  darkestBlue
-} from "../../../styles/settings";
+import { white, grey30, darkerBlue } from "../../../styles/settings";
 
 export const TabContainer = styled.ul`
   display: flex;
   position: relative;
-  background-color: ${darkestBlue};
+  background-color: ${grey30};
   height: ${rem(50)};
   max-width: 100%;
-`;
-
-export const ArrowUp = styled.div`
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: ${rem(4)} solid transparent;
-  border-right: ${rem(4)} solid transparent;
-  border-bottom: ${rem(4)} solid ${darkestBlue};
-  z-index: 1;
-  bottom: 47%;
-  left: 50%;
-
-  ${media.md(css`
-    display: none;
-  `)};
 `;
 
 export const ContextTitle = styled.h1`
@@ -55,7 +33,7 @@ export const Text = styled.span`
   font-family: Roboto;
   font-size: ${rem(10)};
   letter-spacing: ${rem(1.3)};
-  color: ${lightestBlue};
+  color: ${darkerBlue};
   transition: 0.2s color;
   text-transform: uppercase;
 
@@ -69,8 +47,8 @@ export const Tab = styled.li`
   align-items: flex-end;
   cursor: pointer;
   display: flex;
-  width: ${rem(250)};
-  height: ${rem(38)};
+  width: ${rem(100)};
+  height: ${rem(28)};
   justify-content: center;
   padding-bottom: ${rem(8)};
   position: relative;
@@ -128,11 +106,8 @@ export const Tab = styled.li`
 `;
 
 export const Wrapper = styled.nav`
-  background-color: ${white};
-  position: relative;
-
   ${media.md(css`
-    background-color: ${darkestBlue};
+    background-color: ${white};
     display: flex;
     justify-content: center;
     padding-top: ${rem(7)};

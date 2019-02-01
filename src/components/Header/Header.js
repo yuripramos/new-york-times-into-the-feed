@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { shape, func, string, bool } from "prop-types";
 
-import { HeaderWrapper, Title, TitleWrapper, InputWrapper } from "./styles";
+import { HeaderWrapper, Title, TitleWrapper } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
+import SidebarMenu from "../common/SidebarMenu";
 
 class Header extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Header extends Component {
   }
 
   render() {
-    const { section } = this.props;
+    const { section, history } = this.props;
     const { isLoading } = this.state;
     return (
       <HeaderWrapper>
@@ -38,7 +39,7 @@ class Header extends Component {
           </Row>
           <Row>
             <Column>
-              <InputWrapper>Description description</InputWrapper>
+              <SidebarMenu currentLocation={history.location.pathname} />
             </Column>
           </Row>
         </Container>
@@ -52,5 +53,8 @@ export default Header;
 Header.defaultProps = {};
 
 Header.propTypes = {
-  topUserStories: func
+  topUserStories: func,
+  history: shape({
+    push: func
+  })
 };

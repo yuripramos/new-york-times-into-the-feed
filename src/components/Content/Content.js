@@ -9,8 +9,8 @@ function Content() {
       <Container>
         <Row>
           <Column>
-            <Title>An title</Title>
-            <SubTitle>subtitle</SubTitle>
+            <Title> Content Content Content Content Content</Title>
+            <SubTitle>subtitle Content Content Content</SubTitle>
             <Button to={"/forecast"} opacity={1} isCallToAction>
               start
             </Button>

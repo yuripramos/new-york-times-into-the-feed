@@ -37,14 +37,14 @@ class Subnav extends Component {
   render() {
     const { tabs, contextTitle } = this.props;
     const { activeUrl } = this.state;
-
     return (
       <Wrapper>
         {contextTitle && <ContextTitle>{contextTitle}</ContextTitle>}
         <ArrowUp />
         <TabContainer>
-          {tabs.map(tab => (
+          {tabs.map((tab, index) => (
             <Tab
+              data-test={`SubnavTab-${index}`}
               key={tab.url}
               onClick={() => this.onClickTab(tab.url)}
               active={activeUrl === tab.url}

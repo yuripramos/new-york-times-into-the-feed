@@ -3,10 +3,6 @@ import * as NEWS_API from "../../services/News";
 export default () => ({
   topUserStories: async (state, sections) => {
     const topUserStoriesRequest = await NEWS_API.getTopStories(sections);
-    console.log(
-      "science feed",
-      topUserStoriesRequest.find(e => e.section === "science")
-    );
     if (topUserStoriesRequest.length > 0) {
       return {
         isFilled: topUserStoriesRequest.status === 200,
