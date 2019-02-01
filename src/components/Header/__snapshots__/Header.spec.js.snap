@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot with props 1`] = `
+<styled.header>
+  <Container>
+    <Row>
+      <Column>
+        <styled.div>
+          <styled.h1>
+            Forecast App
+          </styled.h1>
+        </styled.div>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <styled.div>
+          <Input
+            checked={false}
+            height={40}
+            name="city"
+            onChange={[MockFunction]}
+            placeholder="city, country to forecast =)"
+            type="text"
+            value="brussels"
+            width={100}
+          />
+          <Button
+            className={null}
+            disabled={false}
+            loading={false}
+            onClick={[Function]}
+            to={
+              Object {
+                "pathname": "/forecast",
+                "search": "?search=brussels",
+              }
+            }
+            type="button"
+            width="80"
+          >
+            SEARCH
+          </Button>
+        </styled.div>
+      </Column>
+    </Row>
+  </Container>
+</styled.header>
+`;

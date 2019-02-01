@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component should match snapshot with children 1`] = `
+<React.Fragment>
+  <ConnectWrapper />
+  <styled.div>
+    <h1>
+      children
+    </h1>
+  </styled.div>
+</React.Fragment>
+`;

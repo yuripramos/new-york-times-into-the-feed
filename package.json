@@ -1,0 +1,138 @@
+{
+  "name": "newyorktimesFeed",
+  "version": "1.0.0",
+  "description": "The New York Times App",
+  "main": "/src/App.js",
+  "engines": {
+    "node": ">=8.9.3"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing && jest",
+    "test:update": "npm run test -- -u",
+    "test:coverage": "jest --coverage --runInBand",
+    "start": "npm run dev",
+    "lint": "eslint ./src --fix",
+    "check": "npm run lint && npm run test",
+    "dev": "webpack-dev-server --port 3002 --inline --hot",
+    "build": "cross-env NODE_ENV=production & webpack"
+  },
+  "author": "Yuri Ramos <yuri.pramos@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-jest": "^23.4.2",
+    "babel-polyfill": "^6.26.0",
+    "enzyme": "3.2.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "3.3.0",
+    "favicons-webpack-plugin": "0.0.9",
+    "grid-styled": "^4.0.0",
+    "history": "^4.7.2",
+    "jest": "22.4.4",
+    "jest-junit": "5.0.0",
+    "jest-localstorage-mock": "2.2.0",
+    "jest-mock-axios": "^2.1.11",
+    "latest-version": "^3.1.0",
+    "moment": "^2.24.0",
+    "preact": "^8.1.0",
+    "preact-compat": "^3.16.0",
+    "prop-types": "^15.5.10",
+    "querystringify": "^0.0.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.3.1",
+    "react-test-renderer": "^16.2.0",
+    "redux-zero": "^4.13.6",
+    "shortid": "^2.2.14",
+    "sinon": "^7.2.3",
+    "styled-components": "^3.4.9"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0-beta.6",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-styled-components": "1.3.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "clean-webpack-plugin": "^1.0.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.26.1",
+    "css-raw-loader": "^0.1.1",
+    "eslint": "^4.13.1",
+    "eslint-loader": "1.6.3",
+    "eslint-plugin-babel": "4.1.2",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-react": "^6.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.9.0",
+    "help": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jsdom": "^9.12.0",
+    "node-sass": "^4.3.0",
+    "offline-plugin": "^4.6.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "path": "^0.12.7",
+    "prettier": "^1.5.3",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.9",
+    "webpack": "3.9.1",
+    "webpack-dev-server": "2.9.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "setupFiles": [
+      "<rootDir>/__mocks__/setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/components/**/styles.js",
+      "!src/components/**/index.js",
+      "!src/styles/**/*.js",
+      "!src/services/history/*.js",
+      "!src/app/index.js",
+      "!src/services/*.js",
+      "!src/components/common/Icon/*.js"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/shim.js",
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  }
+}

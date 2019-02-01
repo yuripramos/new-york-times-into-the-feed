@@ -1,0 +1,66 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 5 versions", "ie >= 11"],
+          "node": "8.9.3"
+        },
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "env": {
+    "testing": {
+      "plugins": ["babel-plugin-dynamic-import-node"],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
+        [
+          "babel-plugin-styled-components",
+          {
+            "ssr": false,
+            "displayName": false,
+            "minify": true
+          }
+        ],
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-async-to-generator"
+      ]
+    },
+    "development": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
+        [
+          "babel-plugin-styled-components",
+          {
+            "ssr": false,
+            "displayName": true,
+            "minify": false
+          }
+        ],
+        [
+          "@babel/plugin-transform-runtime",
+          {
+            "regenerator": true
+          }
+        ],
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-async-to-generator",
+        "babel-plugin-dynamic-import-node",
+        "@babel/plugin-syntax-dynamic-import"
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FutureForecast Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <WeatherInfo
+          apparentTemperature="30undefined"
+          city="one city"
+          clearSearch={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+            }
+          }
+          day="Jan 1, 2010 1:01 AM"
+          forecastTimeMachine={
+            Array [
+              Object {
+                "currently": Object {
+                  "icon": "fog",
+                  "temperature": 20,
+                  "time": 214124,
+                },
+              },
+              Object {
+                "currently": Object {
+                  "icon": "snow",
+                  "temperature": -10,
+                  "time": 123124,
+                },
+              },
+            ]
+          }
+          humidity="2300.00 %"
+          icon="clear-day"
+          isTimeMachineActive={false}
+          latitude={null}
+          longitude={null}
+          nextWeek={
+            Array [
+              Object {
+                "icon": "clear-night",
+                "temperatureHigh": 35,
+                "temperatureLow": 18,
+                "time": 2312321,
+              },
+              Object {
+                "icon": "clear-day",
+                "temperatureHigh": 25,
+                "temperatureLow": 8,
+                "time": 2314441,
+              },
+              Object {
+                "icon": "clear-day",
+                "temperatureHigh": 25,
+                "temperatureLow": 8,
+                "time": 231111141,
+              },
+            ]
+          }
+          summary="Amazing day, go to the beach"
+          temperature="33undefined"
+          wind="undefined undefined"
+        />
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;
