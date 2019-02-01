@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { shape, func, string, bool } from "prop-types";
-
+import { black } from "../../styles/settings";
 import { HeaderWrapper, Title, TitleWrapper } from "./styles";
+import Icon from "../common/Icon";
 import { Container, Row, Column } from "../../styles/grid";
 import SidebarMenu from "../common/SidebarMenu";
 
@@ -33,7 +34,8 @@ class Header extends Component {
           <Row>
             <Column>
               <TitleWrapper>
-                <Title>The Newest York Times</Title>
+                {/* <Title>The Newest York Times</Title> */}
+                <Icon name="Logo" color={black} width="490px" height="56px" />
               </TitleWrapper>
             </Column>
           </Row>

@@ -1,13 +1,6 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../../styles/tools";
-import {
-  white,
-  grey20,
-  grey30,
-  darkestBlue,
-  darkerBlue,
-  lighterBlue
-} from "../../../styles/settings";
+import { white, grey20, grey30, darkestBlue } from "../../../styles/settings";
 import Icon from "../Icon";
 
 export const MenuList = styled.ul`
@@ -45,12 +38,7 @@ export const ListItem = styled.li`
   ${({ active }) =>
     active &&
     css`
-      color: ${darkestBlue};
-      font-family: "Lato Bold", Lato;
-
-      ${LeftBorder} {
-        display: block;
-      }
+      color: ${white};
     `};
 
   :hover {
@@ -68,51 +56,24 @@ export const IconWrapper = styled.div`
   top: ${rem(16)};
 `;
 
-export const ArrowWrapper = styled.div`
-  position: absolute;
-  top: ${rem(23)};
-  right: ${rem(5)};
-  transform: rotate(-90deg);
-`;
-
-export const ArrowDown = styled.div`
-  display: none;
-  width: 0;
-  height: 0;
-  border-left: ${rem(5)} solid transparent;
-  border-right: ${rem(5)} solid transparent;
-  border-top: ${rem(5)} solid ${white};
-  position: absolute;
-  z-index: 1;
-  left: ${rem(62.5)};
-  bottom: -${rem(7)};
-`;
-
 export const Item = styled.div`
   cursor: pointer;
   flex-flow: row wrap;
   width: ${rem(80)};
   text-align: center;
   position: relative;
+  font-family: "OpenSans Regular";
   border-top: solid ${rem(2)} transparent;
 
   ${media.md(css`
     width: ${rem(130)};
   `)};
 
-  ${ArrowDown} {
-    ${({ active }) =>
-      active &&
-      css`
-        display: block;
-      `};
-  }
-
   ${({ active }) =>
     !active &&
     css`
       :hover {
-        color: ${lighterBlue};
+        color: ${white};
       }
     `};
 
@@ -120,9 +81,9 @@ export const Item = styled.div`
     active &&
     css`
       cursor: initial;
-      color: ${darkerBlue};
+      color: ${white};
       font-weight: 600;
-      border-top: solid ${rem(2)} ${darkerBlue};
+      border-top: solid ${rem(2)} ${white};
     `};
 `;
 
@@ -147,8 +108,9 @@ export const ListMenuItems = styled.div`
   margin: 0 auto;
   font-weight: 500;
   color: ${grey30};
-  margin-top: -${rem(6)};
+  margin-top: ${rem(15)};
   display: flex;
   flex-flow: row wrap;
-  height: ${rem(80)};
+  height: ${rem(30)};
+  justify-content: center;
 `;

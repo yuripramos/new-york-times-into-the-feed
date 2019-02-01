@@ -9,19 +9,15 @@
     url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff");
 }
 @font-face {
-  font-family: "RobotoSlab Regular";
-  src: url("../assets/fonts/Roboto/RobotoSlab-Regular.woff2") format("woff2"),
-    url("../assets/fonts/Roboto/RobotoSlab-Regular.woff") format("woff");
+  font-family: "CrimsomText Regular";
+  src: url("../assets/fonts/CrimsomText/crimson-text.woff2") format("woff2"),
+    url("../assets/fonts/CrimsomText/crimson-text.woff") format("woff");
 }
 @font-face {
-  font-family: "RobotoSlab Thin";
-  src: url("../assets/fonts/Roboto/RobotoSlab-Thin.woff2") format("woff2"),
-    url("../assets/fonts/Roboto/RobotoSlab-Thin.woff") format("woff");
-}
-@font-face {
-  font-family: "Helveticaneue Thin";
-  src: url("../assets/fonts/Helveticaneue/helveticaneue.woff2") format("woff2"),
-    url("../assets/fonts/Helveticaneue/helveticaneue.woff") format("woff");
+  font-family: "CrimsomText SemiBold";
+  src: url("../assets/fonts/CrimsomText/crimson-text-semibold.woff2")
+      format("woff2"),
+    url("../assets/fonts/CrimsomText/crimson-text-semibold.woff") format("woff");
 }
 
 html {

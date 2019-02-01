@@ -32,7 +32,6 @@ class SidebarMenu extends Component {
         >
           <Span>science</Span>
         </Item>
-
         <Item
           data-test="Navbar_technology"
           onClick={() => this.redirectTo("/technology/hot")}
@@ -40,7 +39,6 @@ class SidebarMenu extends Component {
         >
           <Span>technology</Span>
         </Item>
-
         <Item
           data-test="Navbar_health"
           onClick={() => this.redirectTo("/health/hot")}
@@ -48,7 +46,6 @@ class SidebarMenu extends Component {
         >
           <Span>health</Span>
         </Item>
-
         <Item
           data-test="Navbar_politics"
           onClick={() => this.redirectTo("/politics/hot")}
@@ -56,7 +53,6 @@ class SidebarMenu extends Component {
         >
           <Span>politics</Span>
         </Item>
-
         <Item
           onClick={() => this.redirectTo("/world/hot")}
           active={this.isActive("/world/hot")}

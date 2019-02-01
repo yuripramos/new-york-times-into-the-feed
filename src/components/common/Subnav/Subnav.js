@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { string, arrayOf, shape, object, func } from "prop-types";
-import {
-  Wrapper,
-  TabContainer,
-  Tab,
-  Text,
-  ContextTitle,
-  ArrowUp
-} from "./styles";
+import { Wrapper, TabContainer, Tab, Text, ContextTitle } from "./styles";
 
 class Subnav extends Component {
   constructor(props) {
@@ -40,7 +33,6 @@ class Subnav extends Component {
     return (
       <Wrapper>
         {contextTitle && <ContextTitle>{contextTitle}</ContextTitle>}
-        <ArrowUp />
         <TabContainer>
           {tabs.map((tab, index) => (
             <Tab
