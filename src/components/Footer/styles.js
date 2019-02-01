@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../styles/tools";
-import { grey10, grey30 } from "../../styles/settings";
+import { grey10 } from "../../styles/settings";
 
 export const ContentWrapper = styled.div`
-  background: ${grey30};
-
   padding: ${rem(35)} 0;
 `;
 

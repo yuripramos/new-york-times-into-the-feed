@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { shape, func, string, bool } from "prop-types";
-import { MODAL_TYPES } from "../common/Modal/Modal";
 
 import { HeaderWrapper, Title, TitleWrapper, InputWrapper } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
@@ -22,7 +21,7 @@ class Header extends Component {
       isLoading: true
     });
     await this.props.forwardGeocode(this.props.search.city);
-    if(this._isMounted) {
+    if (this._isMounted) {
       this.setState({
         isLoading: false
       });
@@ -48,57 +47,19 @@ class Header extends Component {
     } = this.props;
     const { isLoading } = this.state;
 
-    if (isError) {
-      setTimeout(() => {
-        openModal({
-          title: "We are sorry but we were unable to service your request",
-          type: MODAL_TYPES.DEFAULT,
-          icon: "attention",
-          description: ["Try be more more specific e.g. Brussels, Belgium", "If the error persist try again in 5 minutes"],
-          onClose: () => {
-            clearError();
-            return closeModal()
-          }
-        });
-      },300);
-    }
-
     return (
       <HeaderWrapper>
         <Container>
           <Row>
             <Column>
               <TitleWrapper>
-                <Title>Forecast App</Title>
+                <Title>The Newest York Times</Title>
               </TitleWrapper>
             </Column>
           </Row>
           <Row>
             <Column>
-              <InputWrapper>
-                <Input
-                  onChange={handleUserInput}
-                  value={search.city}
-                  placeholder={
-                    "city, country to forecast =)"
-                  }
-                  height={40}
-                  width={100}
-                  type="text"
-                  name="city"
-                />
-                <Button
-                  width={"80"}
-                  to={{
-                    pathname: "/forecast",
-                    search: `?search=${search.city}`
-                  }}
-                  onClick={this.handleConfirmButton}
-                  loading={isLoading}
-                >
-                  SEARCH
-                </Button>
-              </InputWrapper>
+              <InputWrapper>Description description</InputWrapper>
             </Column>
           </Row>
         </Container>

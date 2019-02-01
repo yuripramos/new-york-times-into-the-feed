@@ -13,8 +13,8 @@
     "start": "npm run dev",
     "lint": "eslint ./src --fix",
     "check": "npm run lint && npm run test",
-    "start:dev": "webpack-dev-server --port 3002 --inline --hot",
-    "start:build": "cross-env NODE_ENV=production & webpack"
+    "dev": "webpack-dev-server --port 3002 --inline --hot",
+    "build": "cross-env NODE_ENV=production & webpack"
   },
   "author": "Yuri Ramos <yuri.pramos@gmail.com>",
   "license": "MIT",
@@ -49,8 +49,7 @@
     "redux-zero": "^4.13.6",
     "shortid": "^2.2.14",
     "sinon": "^7.2.3",
-    "styled-components": "^3.4.9",
-    "webpack-dev-server": "^3.0.0"
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
@@ -74,22 +73,23 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^6.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.9.0",
     "help": "^3.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^9.12.0",
-    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.3.0",
     "offline-plugin": "^4.6.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
     "prettier": "^1.5.3",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.9",
     "webpack": "3.9.1",
-    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "2.9.1",
     "webpack-node-externals": "^1.7.2"
   },
   "resolutions": {
