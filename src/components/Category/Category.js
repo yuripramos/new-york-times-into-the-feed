@@ -4,9 +4,21 @@ import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
 import { string, arrayOf, shape, number, func, bool } from "prop-types";
 import { translate } from "../../utils/i18n";
-class Forecast extends Component {
+
+class Category extends Component {
+  async componentDidMount() {
+    const {
+      history,
+      scienceFeed,
+      technologyFeed,
+      healthFeed,
+      politicsFeed,
+      worldFeed
+    } = this.props;
+    console.log("category science content", scienceFeed);
+  }
   render() {
-    // const { isFilled } = this.props;
+    const { isFilled } = this.props;
     return (
       <ContentWrapper>
         <Container>
@@ -24,8 +36,8 @@ class Forecast extends Component {
   }
 }
 
-Forecast.defaultProps = {};
+Category.defaultProps = {};
 
-Forecast.propTypes = {};
+Category.propTypes = {};
 
-export default Forecast;
+export default Category;

@@ -1,19 +1,18 @@
 import { connect } from "redux-zero/react";
-import { withRouter } from "react-router-dom";
 
-import Header from "./Header";
+import Category from "./Category";
 import newsActions from "../../actions/News";
 
 export default connect(
   ({
-    topUserStories,
+    isFilled,
     scienceFeed,
     technologyFeed,
     healthFeed,
     politicsFeed,
     worldFeed
   }) => ({
-    topUserStories,
+    isFilled,
     scienceFeed,
     technologyFeed,
     healthFeed,
@@ -21,4 +20,4 @@ export default connect(
     worldFeed
   }),
   newsActions
-)(withRouter(Header));
+)(Category);

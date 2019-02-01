@@ -1,7 +1,7 @@
 {
-  "name": "newyorktimesFeed",
+  "name": "newestyorktimesFeed",
   "version": "1.0.0",
-  "description": "The New York Times App",
+  "description": "The Newest York Times App",
   "main": "/src/App.js",
   "engines": {
     "node": ">=8.9.3"

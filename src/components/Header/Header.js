@@ -15,7 +15,6 @@ class Header extends Component {
   }
 
   async componentDidMount() {
-    const { topUserStories } = this.props;
     this.props.topUserStories([
       "science",
       "technology",
@@ -26,8 +25,17 @@ class Header extends Component {
   }
 
   render() {
-    const { section, history } = this.props;
-    const { isLoading } = this.state;
+    const {
+      history,
+      scienceFeed,
+      technologyFeed,
+      healthFeed,
+      politicsFeed,
+      worldFeed
+    } = this.props;
+    console.log("science", scienceFeed);
+
+    // const { isLoading } = this.state;
     return (
       <HeaderWrapper>
         <Container>

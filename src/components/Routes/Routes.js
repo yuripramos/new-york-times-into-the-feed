@@ -1,14 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import Subnav from "../../components/common/Subnav";
-import Forecast from "../Forecast";
+import Category from "../Category";
 import Content from "../Content";
 
 import Layout from "../common/Layout";
 
 const withRouteConfig = ({ tabs, contextTitle }) => Component =>
   function WrappedComponent(props) {
-    console.log("check", tabs && contextTitle, tabs, contextTitle);
     return (
       <Fragment>
         {tabs && contextTitle && (
@@ -95,24 +94,24 @@ class Routes extends Component {
     return (
       <Switch>
         <Layout>
-          <Route exact path="/" component={Forecast} />
+          <Route exact path="/" component={Category} />
           <Route>
             <Switch>
               <Route path="/science/hot" render={scienceRoutes(Content)} />
               <Route path="/science/all" render={scienceRoutes(Content)} />
               <Route
                 path="/technology/hot"
-                render={technologyRoutes(Forecast)}
+                render={technologyRoutes(Category)}
               />
               <Route
                 path="/technology/all"
                 render={technologyRoutes(Content)}
               />
-              <Route path="/health/hot" render={healthRoutes(Forecast)} />
+              <Route path="/health/hot" render={healthRoutes(Category)} />
               <Route path="/health/all" render={healthRoutes(Content)} />
-              <Route path="/politics/hot" render={politicsRoutes(Content)} />
+              <Route path="/politics/hot" render={politicsRoutes(Category)} />
               <Route path="/politics/all" render={politicsRoutes(Content)} />
-              <Route path="/world/hot" render={worldRoutes(Content)} />
+              <Route path="/world/hot" render={worldRoutes(Category)} />
               <Route path="/world/all" render={worldRoutes(Content)} />
             </Switch>
           </Route>
