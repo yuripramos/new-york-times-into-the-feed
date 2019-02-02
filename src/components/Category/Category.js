@@ -27,7 +27,6 @@ class Category extends Component {
     const { isFilled, contextTitle, FeedArray, current } = this.props;
     const { isLoading } = this.state;
     isFilled && this.props.filterByType(FeedArray, contextTitle);
-    console.log(current);
     return (
       <ContentWrapper>
         {isFilled && (

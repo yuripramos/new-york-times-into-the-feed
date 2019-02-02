@@ -2,12 +2,15 @@ import React, { Component, Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import Subnav from "../../components/common/Subnav";
 import Category from "../Category";
+import CategoryArticleExpanded from "../Category/CategoryArticleExpanded";
+
 import Content from "../Content";
 
 import Layout from "../common/Layout";
 
 const withRouteConfig = ({ tabs, contextTitle }) => Component =>
   function WrappedComponent(props) {
+
     return (
       <Fragment>
         {tabs && contextTitle && (
@@ -94,10 +97,18 @@ class Routes extends Component {
     return (
       <Switch>
         <Layout>
-          <Route exact path="/" component={Category} />
+          <Route exact path="/" component={Content} />
           <Route>
             <Switch>
-              <Route path="/science/hot" render={scienceRoutes(Category)} />
+              <Route
+                exact
+                path="/science/hot"
+                render={scienceRoutes(Category)}
+              />
+              <Route
+                path="/science/hot/:idArticle"
+                render={scienceRoutes(CategoryArticleExpanded)}
+              />
               <Route path="/science/all" render={scienceRoutes(Content)} />
               <Route
                 path="/technology/hot"
@@ -107,7 +118,15 @@ class Routes extends Component {
                 path="/technology/all"
                 render={technologyRoutes(Content)}
               />
-              <Route path="/health/hot" render={healthRoutes(Category)} />
+              <Route
+                exact
+                path="/health/hot"
+                render={healthRoutes(Category)}
+              />
+              <Route
+                path="/health/hot/:idArticle"
+                render={scienceRoutes(CategoryArticleExpanded)}
+              />
               <Route path="/health/all" render={healthRoutes(Content)} />
               <Route
                 path="/politics/hot"

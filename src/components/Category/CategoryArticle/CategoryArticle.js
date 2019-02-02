@@ -1,47 +1,81 @@
-import React from "react";
+import React, { Component  } from "react";
 import moment from "moment";
+
 import {
   ContentWrapper,
   Title,
   CategoryWrapper,
   PublishedDate,
   Author,
-  Media
+  Media,
+  Clicker
 } from "./styles";
 import { Container, Row, Column } from "../../../styles/grid";
 import { string, arrayOf, shape, number, func, bool } from "prop-types";
 
-function CategoryContent ({ content }) {
-  return (
-    <ContentWrapper>
-      <Container>
-        <Row>
-          <Column>
-            {content.map((e, i) => (
-              <CategoryWrapper key={`article-${e.section}-${i}`}>
-                <Title>{e.title} </Title>
-                <PublishedDate>
-                  updated in: {moment(e.published_date).format("LLL")}
-                </PublishedDate>
-                <Media
-                  src={e.multimedia[4].url || e.multimedia[2].url}
-                  alt="thumbnail"
+class CategoryContent extends Component {
+  constructor(props) {
+    super(props);
+    this.getKeyFromShortenUrl = this.getKeyFromShortenUrl.bind(this);
+  }
+  getKeyFromShortenUrl(hash) {
+    const hashIdFull = hash.split("/");
+    const shortHash = hashIdFull[hashIdFull.length - 1];
+    if(shortHash.includes(".html")) {
+      return shortHash.replace(".html", "");
+    }
+    return shortHash;
+  }
+
+  render() {
+    const { content, match } = this.props;
+    return (
+      <ContentWrapper>
+        <Container>
+          <Row>
+            <Column>
+              {content.map((e, i) => (
+                <CategoryWrapper key={`article-${e.section}-${i}`}>
+                  <Clicker
+                    to={`${match.path}/${this.getKeyFromShortenUrl(
+                      e.short_url || e.url
+                    )}`}
+                  >
+                    <Title>{e.title} </Title>
+                  </Clicker>
+                  <PublishedDate>
+                    updated in: {moment(e.published_date).format("LLL")}
+                  </PublishedDate>
+                  <Media
+                    src={e.multimedia[4].url || e.multimedia[2].url}
+                    alt="thumbnail"
                   />
-                <Author>{e.byline} </Author>
-              </CategoryWrapper>
-            ))}
-          </Column>
-        </Row>
-      </Container>
-    </ContentWrapper>
-  );
+                  <Author>{e.byline} </Author>
+                </CategoryWrapper>
+              ))}
+            </Column>
+          </Row>
+        </Container>
+      </ContentWrapper>
+    );
+  }
 }
 
 
 CategoryContent.defaultProps = {};
 
 CategoryContent.propTypes = {
-
+  content: arrayOf(
+    shape({
+      title: string,
+      published_date: string,
+      byline: string
+    })
+  ),
+  match:
+    shape({
+      path: string,
+    }),
 };
 
 export default CategoryContent;

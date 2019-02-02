@@ -7,18 +7,12 @@ import newsActions from "../../actions/News";
 export default connect(
   ({
     topUserStories,
-    scienceFeed,
-    technologyFeed,
-    healthFeed,
-    politicsFeed,
-    worldFeed
+    isFilled,
+    FeedArray
   }) => ({
     topUserStories,
-    scienceFeed,
-    technologyFeed,
-    healthFeed,
-    politicsFeed,
-    worldFeed
+    isFilled,
+    FeedArray
   }),
   newsActions
 )(withRouter(Header));
