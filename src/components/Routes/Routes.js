@@ -111,8 +111,13 @@ class Routes extends Component {
               />
               <Route path="/science/all" render={scienceRoutes(Content)} />
               <Route
+                exact
                 path="/technology/hot"
                 render={technologyRoutes(Category)}
+              />
+              <Route
+                path="/technology/hot/:idArticle"
+                render={technologyRoutes(CategoryArticleExpanded)}
               />
               <Route
                 path="/technology/all"
@@ -129,14 +134,27 @@ class Routes extends Component {
               />
               <Route path="/health/all" render={healthRoutes(Content)} />
               <Route
+                exact
                 path="/politics/hot"
                 render={politicsRoutes(Category)}
+              />
+              <Route
+                path="/politics/hot/:idArticle"
+                render={politicsRoutes(CategoryArticleExpanded)}
               />
               <Route
                 path="/politics/all"
                 render={politicsRoutes(Content)}
               />
-              <Route path="/world/hot" render={worldRoutes(Category)} />
+              <Route
+                exact
+                path="/world/hot"
+                render={worldRoutes(Category)}
+              />
+              <Route
+                path="/world/hot/:idArticle"
+                render={worldRoutes(CategoryArticleExpanded)}
+              />
               <Route path="/world/all" render={worldRoutes(Content)} />
             </Switch>
           </Route>
