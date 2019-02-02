@@ -33,9 +33,7 @@ class Header extends Component {
       politicsFeed,
       worldFeed
     } = this.props;
-    console.log("science", scienceFeed);
 
-    // const { isLoading } = this.state;
     return (
       <HeaderWrapper>
         <Container>

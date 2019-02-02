@@ -13,7 +13,7 @@ const withRouteConfig = ({ tabs, contextTitle }) => Component =>
         {tabs && contextTitle && (
           <Subnav tabs={tabs} contextTitle={contextTitle} />
         )}
-        <Component {...props} />
+        <Component contextTitle={contextTitle} {...props} />
       </Fragment>
     );
   };
@@ -97,7 +97,7 @@ class Routes extends Component {
           <Route exact path="/" component={Category} />
           <Route>
             <Switch>
-              <Route path="/science/hot" render={scienceRoutes(Content)} />
+              <Route path="/science/hot" render={scienceRoutes(Category)} />
               <Route path="/science/all" render={scienceRoutes(Content)} />
               <Route
                 path="/technology/hot"
@@ -109,8 +109,14 @@ class Routes extends Component {
               />
               <Route path="/health/hot" render={healthRoutes(Category)} />
               <Route path="/health/all" render={healthRoutes(Content)} />
-              <Route path="/politics/hot" render={politicsRoutes(Category)} />
-              <Route path="/politics/all" render={politicsRoutes(Content)} />
+              <Route
+                path="/politics/hot"
+                render={politicsRoutes(Category)}
+              />
+              <Route
+                path="/politics/all"
+                render={politicsRoutes(Content)}
+              />
               <Route path="/world/hot" render={worldRoutes(Category)} />
               <Route path="/world/all" render={worldRoutes(Content)} />
             </Switch>

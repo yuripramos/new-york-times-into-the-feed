@@ -4,20 +4,11 @@ import Category from "./Category";
 import newsActions from "../../actions/News";
 
 export default connect(
-  ({
+  ({ isFilled, FeedArray, filterByType, current }) => ({
     isFilled,
-    scienceFeed,
-    technologyFeed,
-    healthFeed,
-    politicsFeed,
-    worldFeed
-  }) => ({
-    isFilled,
-    scienceFeed,
-    technologyFeed,
-    healthFeed,
-    politicsFeed,
-    worldFeed
+    FeedArray,
+    filterByType,
+    current
   }),
   newsActions
 )(Category);
