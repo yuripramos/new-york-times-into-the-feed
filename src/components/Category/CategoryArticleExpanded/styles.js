@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../../styles/tools";
-import { grey10, red10 } from "../../../styles/settings";
+import { grey10, red10, darkestBlue } from "../../../styles/settings";
 
 export const ContentWrapper = styled.div`
   text-align: center;
@@ -12,7 +12,7 @@ export const ContentWrapper = styled.div`
 
 export const CategoryWrapper = styled.div`
   color: #000;
-  cursor: pointer;
+  font-family: "CrimsomText Regular";
   text-align: left;
   padding: ${rem(15)} ${rem(5)};
   min-height: ${rem(100)};
@@ -24,40 +24,61 @@ export const CategoryWrapper = styled.div`
   }
 `;
 
+export const Link = styled.a`
+  text-decoration: none;
+  font-family: "OpenSans Regular";
+  font-size: ${rem(16)};
+  color: ${darkestBlue};
+  cursor: pointer;
+`;
+
 export const Media = styled.img`
-  width: ${rem(400)};
-  height: ${rem(300)};
+  width: 100%;
+  height: ${rem(350)};
+    ${media.md(css`
+    height: ${rem(500)};
+  `)};
+  ${media.lg(css`
+    height: ${rem(620)};
+  `)};
 `;
 
 export const Title = styled.span`
-  font-size: ${rem(30)};
+  font-size: ${rem(38)};
   font-weight: 200;
   line-height: 0.75;
   font-family: "CrimsomText SemiBold";
-  margin-top: ${rem(20)};
+  margin-top: ${rem(30)};
   width: 100%;
-  ${({ tiny }) =>
-    tiny &&
-    css`
-      font-size: 1em;
-    `};
 `;
 
 export const PublishedDate = styled.span`
-  font-family: "CrimsomText Regular";
-  font-size: 0.35em;
+  font-family: "OpenSans Regular";
+  font-size: ${rem(16)};
   margin: 1.625rem 0;
   letter-spacing: 0.05em;
   color: ${red10};
   width: 100%;
-  font-size: 0.3em;
   margin: ${rem(20)} 0 ${rem(15)} 0;
 `;
 
 export const Author = styled.span`
-  font-size: 0.4em;
-  line-height: 0.75;
-  font-family: "OpenSans Thin";
+  font-family: "OpenSans Regular";
+  font-size: ${rem(12)};
   margin: ${rem(20)} 0 ${rem(10)} 0;
   width: 100%;
 `;
+
+export const Kicker = styled.span`
+  font-size: ${rem(18)};
+  margin: ${rem(20)} 0 ${rem(10)} 0;
+  width: 100%;
+`;
+
+export const Description = styled.span`
+  font-size: ${rem(22)};
+  margin: ${rem(20)} 0 ${rem(10)} 0;
+  width: 100%;
+`;
+
+

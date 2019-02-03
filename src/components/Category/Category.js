@@ -12,9 +12,10 @@ class Category extends Component {
     this.state = {
       isLoading: true
     };
+    this._isMounted = false;
   }
   componentWillReceiveProps(){
-    const { isFilled, current } = this.props;
+    const { isFilled } = this.props;
     const { isLoading } = this.state;
     if (isFilled && isLoading) {
       this.setState({
@@ -23,8 +24,19 @@ class Category extends Component {
     }
   }
 
+  componentDidMount() {
+    this._isMounted = true;
+    window.onpopstate = () => {
+      if (this._isMounted) {
+        this.setState({
+          isLoading: false
+        });
+      }
+    }
+  }
+
   render() {
-    const { isFilled, contextTitle, FeedArray, current } = this.props;
+    const { isFilled, contextTitle, FeedArray, current, match } = this.props;
     const { isLoading } = this.state;
     isFilled && this.props.filterByType(FeedArray, contextTitle);
     return (

@@ -58,7 +58,7 @@ export const Title = styled.span`
 `;
 
 export const PublishedDate = styled.span`
-  font-family: "CrimsomText Regular";
+  font-family: "OpenSans Regular";
   font-size: .35em;
   margin: 1.625rem 0;
   letter-spacing: 0.05em;
@@ -71,7 +71,7 @@ export const PublishedDate = styled.span`
 export const Author = styled.span`
   font-size: .4em;
   line-height: 0.75;
-  font-family: "OpenSans Thin";
+  font-family: "OpenSans Regular";
   margin: ${rem(20)} 0 ${rem(10)} 0;
   width: 100%;
 `;

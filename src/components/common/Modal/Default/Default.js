@@ -44,7 +44,7 @@ function Default({ modalSettings, closeModal }) {
           onClose && onClose();
         }}
       >
-        <Icon name="close" width="14" height="14" />
+        <Icon name="Close" width="14" height="14" />
         <Close>Close</Close>
       </CloseBtn>
     </DefaultContainer>

@@ -46,10 +46,13 @@ class CategoryContent extends Component {
                   <PublishedDate>
                     updated in: {moment(e.published_date).format("LLL")}
                   </PublishedDate>
-                  <Media
-                    src={e.multimedia[4].url || e.multimedia[2].url}
-                    alt="thumbnail"
-                  />
+                  {e.multimedia.length > 0 && (
+                    <Media
+                      src={e.multimedia.length >3 ? e.multimedia[4].url : e.multimedia[2].url}
+                      alt="thumbnail"
+                    />
+                  )
+                  }
                   <Author>{e.byline} </Author>
                 </CategoryWrapper>
               ))}
@@ -61,8 +64,6 @@ class CategoryContent extends Component {
   }
 }
 
-
-CategoryContent.defaultProps = {};
 
 CategoryContent.propTypes = {
   content: arrayOf(
