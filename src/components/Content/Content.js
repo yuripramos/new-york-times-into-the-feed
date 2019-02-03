@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import CategoryArticle from "../Category/CategoryArticle";
 import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-import { string, arrayOf, shape, number, func, bool } from "prop-types";
+import { arrayOf, func, bool } from "prop-types";
 import LocalLoading from "../common/LocalLoading";
 import { shuffleArticles } from "../../utils/formatArray";
 
@@ -16,7 +16,6 @@ class Content extends Component {
     this._isMounted = false;
   }
   componentWillReceiveProps() {
-    const { isFilled, FeedArray } = this.props;
     const { isLoading } = this.state;
     if (isLoading) {
       this.setState({
@@ -26,7 +25,6 @@ class Content extends Component {
   }
 
   componentDidMount() {
-    const { isFilled, FeedArray } = this.props;
     this._isMounted = true;
     window.onpopstate = () => {
       if (this._isMounted) {
@@ -40,10 +38,7 @@ class Content extends Component {
   render() {
     const {
       isFilled,
-      contextTitle,
       FeedArray,
-      current,
-      match
     } = this.props;
     const { isLoading } = this.state;
     return (
@@ -75,8 +70,8 @@ Content.defaultProps = {};
 
 Content.propTypes = {
   filterByType: func,
-  contextTitle: string,
   isFilled: bool,
+  // FeedArray: arrayOf,
 };
 
 export default Content;

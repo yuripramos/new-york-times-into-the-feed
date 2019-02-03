@@ -1,31 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Subnav component should match snapshot with context title 1`] = `
-<styled.nav
-  data-test="Subnav"
->
+<styled.nav>
   <styled.h1>
     context title
   </styled.h1>
-  <styled.div />
   <styled.ul />
 </styled.nav>
 `;
 
 exports[`Subnav component should match snapshot with no tabs 1`] = `
-<styled.nav
-  data-test="Subnav"
->
-  <styled.div />
+<styled.nav>
   <styled.ul />
 </styled.nav>
 `;
 
 exports[`Subnav component should match snapshot with tabs 1`] = `
-<styled.nav
-  data-test="Subnav"
->
-  <styled.div />
+<styled.nav>
   <styled.ul>
     <styled.li
       active={true}

@@ -1,114 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SidebarMenu component should match snapshot 1`] = `
-<styled.ul>
-  <styled.div />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetTransactions",
-        "GetPosition",
-      ]
-    }
-  />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetPosition",
-      ]
-    }
-  />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetContract",
-      ]
-    }
-  />
-  <styled.li
+<styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_science"
     onClick={[Function]}
   >
-    <styled.div />
-    <styled.div>
-      <Icon
-        color={null}
-        fixCrossAxisAlign={null}
-        height="28"
-        type="Logout"
-        width="28"
-      />
-    </styled.div>
-    EXIT
-    <styled.div>
-      <Icon
-        color={null}
-        fixCrossAxisAlign={null}
-        height="11.9"
-        type="Arrow"
-        width="11"
-      />
-    </styled.div>
-  </styled.li>
-</styled.ul>
+    <styled.span>
+      Science
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_technology"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Technology
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_health"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Health
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_politics"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Politics
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    onClick={[Function]}
+  >
+    <styled.span>
+      World
+    </styled.span>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`SidebarMenu component should match snapshot for desktop 1`] = `
 <styled.div>
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetTransactions",
-        "GetPosition",
-      ]
-    }
-  />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetPosition",
-      ]
-    }
-  />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetTransactions",
-      ]
-    }
-  />
-  <ConnectWrapper
-    render={[Function]}
-    roles={
-      Array [
-        "GetContract",
-      ]
-    }
-  />
-  <ConnectWrapper
-    anyRole={true}
-    render={[Function]}
-    roles={
-      Array [
-        "CreateEFT",
-        "CreateApproveEFT",
-      ]
-    }
-  />
-  <ConnectWrapper
-    anyRole={true}
-    render={[Function]}
-    roles={
-      Array [
-        "ApproveEFT",
-      ]
-    }
-  />
+  <styled.div
+    active={false}
+    data-test="Navbar_science"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Science
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_technology"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Technology
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_health"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Health
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    data-test="Navbar_politics"
+    onClick={[Function]}
+  >
+    <styled.span>
+      Politics
+    </styled.span>
+  </styled.div>
+  <styled.div
+    active={false}
+    onClick={[Function]}
+  >
+    <styled.span>
+      World
+    </styled.span>
+  </styled.div>
 </styled.div>
 `;
 

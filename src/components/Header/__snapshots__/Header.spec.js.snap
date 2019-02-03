@@ -6,42 +6,20 @@ exports[`Header component should match snapshot with props 1`] = `
     <Row>
       <Column>
         <styled.div>
-          <styled.h1>
-            Forecast App
-          </styled.h1>
+          <IconGenerator
+            color="#333"
+            height="56px"
+            name="Logo"
+            width="490px"
+          />
         </styled.div>
       </Column>
     </Row>
     <Row>
       <Column>
-        <styled.div>
-          <Input
-            checked={false}
-            height={40}
-            name="city"
-            onChange={[MockFunction]}
-            placeholder="city, country to forecast =)"
-            type="text"
-            value="brussels"
-            width={100}
-          />
-          <Button
-            className={null}
-            disabled={false}
-            loading={false}
-            onClick={[Function]}
-            to={
-              Object {
-                "pathname": "/forecast",
-                "search": "?search=brussels",
-              }
-            }
-            type="button"
-            width="80"
-          >
-            SEARCH
-          </Button>
-        </styled.div>
+        <SidebarMenu
+          currentLocation=""
+        />
       </Column>
     </Row>
   </Container>

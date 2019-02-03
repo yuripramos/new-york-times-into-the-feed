@@ -3,7 +3,6 @@ import { func, string, bool } from "prop-types";
 import { redirect } from "../../../utils/redirect";
 
 import { ListMenuItems, Item, Span } from "./styles";
-// import { translate } from "../../../utils/i18n";
 
 class SidebarMenu extends Component {
   constructor(props) {
@@ -30,34 +29,34 @@ class SidebarMenu extends Component {
           onClick={() => this.redirectTo("/science/hot")}
           active={this.isActive("/science/")}
         >
-          <Span>science</Span>
+          <Span>Science</Span>
         </Item>
         <Item
           data-test="Navbar_technology"
           onClick={() => this.redirectTo("/technology/hot")}
           active={this.isActive("/technology/")}
         >
-          <Span>technology</Span>
+          <Span>Technology</Span>
         </Item>
         <Item
           data-test="Navbar_health"
           onClick={() => this.redirectTo("/health/hot")}
           active={this.isActive("/health/")}
         >
-          <Span>health</Span>
+          <Span>Health</Span>
         </Item>
         <Item
           data-test="Navbar_politics"
           onClick={() => this.redirectTo("/politics/hot")}
           active={this.isActive("/politics/")}
         >
-          <Span>politics</Span>
+          <Span>Politics</Span>
         </Item>
         <Item
           onClick={() => this.redirectTo("/world/hot")}
           active={this.isActive("/world/")}
         >
-          <Span>world</Span>
+          <Span>World</Span>
         </Item>
       </ListMenuItems>
     );
