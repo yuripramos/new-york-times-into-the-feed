@@ -61,7 +61,7 @@ class CategoryContent extends Component {
                   {e.multimedia.length > 0 && (
                     <Media
                       src={
-                        e.multimedia.length > 3
+                        e.multimedia.length > 4
                           ? e.multimedia[4].url
                           : e.multimedia[2].url
                       }

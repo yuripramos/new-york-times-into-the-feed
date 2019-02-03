@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import CategoryArticle from "./CategoryArticle";
 import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-import { string, arrayOf, shape, number, func, bool } from "prop-types";
+import { string, arrayOf, shape, func, bool } from "prop-types";
 import LocalLoading from "../common/LocalLoading";
 class Category extends Component {
   constructor(props) {
@@ -73,6 +73,32 @@ Category.propTypes = {
   filterByType: func,
   contextTitle: string,
   isFilled: bool,
+  FeedArray: arrayOf(
+    shape({
+      results: arrayOf({
+        section: string,
+        abstract: string,
+        url: string,
+        published_date: string,
+        byline: string,
+        title: string
+      })
+    })
+  ),
+  current: shape({
+    results: arrayOf({
+      section: string,
+      abstract: string,
+      url: string,
+      published_date: string,
+      byline: string,
+      title: string
+    })
+  }),
+  match:
+    shape({
+      path: string,
+    }),
 };
 
 export default Category;

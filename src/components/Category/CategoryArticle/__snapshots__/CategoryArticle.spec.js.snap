@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.div
+          key="article-science-0"
+        >
+          <Styled(Link)
+            to="/science/hot/pink-glow"
+          >
+            <styled.span>
+              Flying Squirrels That Glow Pink in the Dark
+               
+            </styled.span>
+          </Styled(Link)>
+          <styled.span>
+            updated in: 
+            January 1, 2010 6:01 AM
+          </styled.span>
+          <styled.img
+            alt="thumbnail"
+            src="www.imgfor.be/9FSww.jpg"
+          />
+          <styled.span>
+            By VERONIQUE GREENWOOD
+             
+          </styled.span>
+        </styled.div>
+        <styled.div
+          key="article-science-1"
+        >
+          <Styled(Link)
+            to="/science/hot/red-glow"
+          >
+            <styled.span>
+              Pink is the new white
+               
+            </styled.span>
+          </Styled(Link)>
+          <styled.span>
+            updated in: 
+            January 1, 2010 11:01 AM
+          </styled.span>
+          <styled.img
+            alt="thumbnail"
+            src="www.imgfor.be/9FSww.jpg"
+          />
+          <styled.span>
+            By BARBARIAN
+             
+          </styled.span>
+        </styled.div>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

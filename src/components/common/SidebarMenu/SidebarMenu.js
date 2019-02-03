@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { func, string, bool } from "prop-types";
+import { string } from "prop-types";
 import { redirect } from "../../../utils/redirect";
 
 import { ListMenuItems, Item, Span } from "./styles";

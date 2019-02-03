@@ -1,69 +1,89 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
-import Forecast from "./Forecast";
+import Category from "./Category";
 
 let props;
 
 beforeEach(() => {
   props = {
-    updatedCity: "one city",
-    isFilled: true,
-    latittude: 23123,
-    longitute: 21421,
-    clearSearch: jest.fn(),
-    currently: {
-      temperature: 33,
-      day: "21 January, 2019",
-      wind: 3,
-      humidity: 23,
-      icon: "clear-day",
-      summary: "Amazing day, go to the beach",
-      apparentTemperature: 30,
-    },
-    nextWeekStats: [
+    FeedArray: [
       {
-        temperatureHigh: 35,
-        temperatureLow: 18,
-        time: 2312321,
-        icon: "clear-night"
+        results: [
+          {
+            section: "science",
+            abstract: "while ultraviolete fluor",
+            url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
+            published_date: "2019-02-01T12:42:18-05:00",
+            byline: "By VERONIQUE GREENWOOD",
+            title: "Flying Squirrels That Glow Pink in the Dark"
+          },
+          {
+            section: "science",
+            abstract: "while usadasltraviolete fluor",
+            url: "http://www.nytimes.com/2019/02/01/science/red-glow",
+            published_date: "2019-02-01T12:42:16-05:00",
+            byline: "By BARBARIAN",
+            title: "Pink is the new white"
+          }
+        ]
       },
       {
-        temperatureHigh: 25,
-        temperatureLow: 8,
-        time: 2314441,
-        icon: "clear-day"
-      },
-      {
-        temperatureHigh: 25,
-        temperatureLow: 8,
-        time: 231111141,
-        icon: "clear-day"
+        results: [
+          {
+            section: "science",
+            abstract: "while ultraviolete fluor",
+            url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
+            published_date: "2019-02-01T12:42:18-05:00",
+            byline: "By VERONIQUE GREENWOOD",
+            title: "Flying Squirrels That Glow Pink in the Dark"
+          },
+          {
+            section: "science",
+            abstract: "while usadasltraviolete fluor",
+            url: "http://www.nytimes.com/2019/02/01/science/red-glow",
+            published_date: "2019-02-01T12:42:16-05:00",
+            byline: "By BARBARIAN",
+            title: "Pink is the new white"
+          }
+        ]
       }
     ],
-    isTimeMachine: false,
-    forecastTimeMachine: [
-      {
-        currently: {
-          time: 214124,
-          icon: "fog",
-          temperature: 20
+    current: {
+      results: [
+        {
+          section: "science",
+          abstract: "while ultraviolete fluor",
+          url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
+          published_date: "2019-02-01T12:42:18-05:00",
+          byline: "By VERONIQUE GREENWOOD",
+          title: "Flying Squirrels That Glow Pink in the Dark"
+        },
+        {
+          section: "science",
+          abstract: "while usadasltraviolete fluor",
+          url: "http://www.nytimes.com/2019/02/01/science/red-glow",
+          published_date: "2019-02-01T12:42:16-05:00",
+          byline: "By BARBARIAN",
+          title: "Pink is the new white"
         }
-      },
-      {
-        currently: {
-          time: 123124,
-          icon: "snow",
-          temperature: -10
-        }
-      }
-    ]
+      ]
+    },
+    match: {
+      path: "/science/hot"
+    },
+    isFilled: true,
+    filterByType: jest.fn()
   };
 });
 
-describe("FutureForecast Component", () => {
+describe("Category Component", () => {
   it("should match snapshot with props", () => {
-    expect(shallow(<Forecast {...props} />)).toMatchSnapshot();
+    expect(shallow(<Category {...props} />)).toMatchSnapshot();
   });
-
+  it("should call filterByType", () => {
+    const wrapped = mount(<Category {...props} />);
+    expect(wrapped.state()).toEqual({ isLoading: true });
+    expect(props.filterByType).toHaveBeenCalled();
+  });
 });
