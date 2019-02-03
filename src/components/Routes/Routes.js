@@ -109,7 +109,15 @@ class Routes extends Component {
                 path="/science/hot/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/science/all" render={scienceRoutes(Category)} />
+              <Route
+                exact
+                path="/science/all"
+                render={scienceRoutes(Category)}
+              />
+              <Route
+                path="/science/all/:idArticle"
+                render={scienceRoutes(CategoryArticleExpanded)}
+              />
               <Route
                 exact
                 path="/technology/hot"
@@ -120,8 +128,13 @@ class Routes extends Component {
                 render={technologyRoutes(CategoryArticleExpanded)}
               />
               <Route
+                exact
                 path="/technology/all"
                 render={technologyRoutes(Category)}
+              />
+              <Route
+                path="/technology/all/:idArticle"
+                render={scienceRoutes(CategoryArticleExpanded)}
               />
               <Route
                 exact
@@ -132,7 +145,15 @@ class Routes extends Component {
                 path="/health/hot/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/health/all" render={healthRoutes(Category)} />
+              <Route
+                exact
+                path="/health/all"
+                render={healthRoutes(Category)}
+              />
+              <Route
+                path="/health/all/:idArticle"
+                render={scienceRoutes(CategoryArticleExpanded)}
+              />
               <Route
                 exact
                 path="/politics/hot"
@@ -143,8 +164,13 @@ class Routes extends Component {
                 render={politicsRoutes(CategoryArticleExpanded)}
               />
               <Route
+                exact
                 path="/politics/all"
                 render={politicsRoutes(Category)}
+              />
+              <Route
+                path="/politics/all/:idArticle"
+                render={politicsRoutes(CategoryArticleExpanded)}
               />
               <Route
                 exact
@@ -155,7 +181,15 @@ class Routes extends Component {
                 path="/world/hot/:idArticle"
                 render={worldRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/world/all" render={worldRoutes(Category)} />
+              <Route
+                exact
+                path="/world/all"
+                render={worldRoutes(Category)}
+              />
+              <Route
+                path="/world/all/:idArticle"
+                render={worldRoutes(CategoryArticleExpanded)}
+              />
             </Switch>
           </Route>
         </Layout>

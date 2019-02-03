@@ -11,7 +11,7 @@ export function shuffleArticles(arr) {
   });
 
   arrTemp.forEach(e => {
-    shuffledArray = [...shuffledArray, e.slice(0, 5)];
+    shuffledArray = [...shuffledArray, e.slice(0, 5)]; //grab only the first 5 occurencies from each section
   });
 
 

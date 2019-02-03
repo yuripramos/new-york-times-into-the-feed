@@ -1,6 +1,6 @@
 import React, { Component  } from "react";
 import moment from "moment";
-
+import Icon from "../../common/Icon";
 import {
   ContentWrapper,
   Title,
@@ -9,10 +9,11 @@ import {
   Author,
   Media,
   Clicker,
+  Notice,
   SubTitle
 } from "./styles";
 import { Container, Row, Column } from "../../../styles/grid";
-import { string, arrayOf, shape, number, func, bool } from "prop-types";
+import { string, arrayOf, shape, bool } from "prop-types";
 
 class CategoryContent extends Component {
   constructor(props) {
@@ -35,16 +36,25 @@ class CategoryContent extends Component {
         <Container>
           <Row>
             <Column>
+              {isMainPage && (
+                <Notice>
+                  <Icon name="Attention" width="50px" height="50px" />
+                  This page only list the most recent news from all
+                  sections, to navigate choose the sections above
+                </Notice>
+              )}
               {content.map((e, i) => (
                 <CategoryWrapper key={`article-${e.section}-${i}`}>
                   {isMainPage && <SubTitle>in {e.section} </SubTitle>}
-                  <Clicker
-                    to={`${match.path}/${this.getKeyFromShortenUrl(
-                      e.short_url || e.url
-                    )}`}
-                  >
-                    <Title>{e.title} </Title>
-                  </Clicker>
+                  {isMainPage ? <Title>{e.title} </Title> : (
+                    <Clicker
+                      to={`${match.path}/${this.getKeyFromShortenUrl(
+                        e.short_url || e.url
+                      )}`}
+                    >
+                      <Title>{e.title} </Title>
+                    </Clicker>
+                  )}
                   <PublishedDate>
                     updated in: {moment(e.published_date).format("LLL")}
                   </PublishedDate>
@@ -82,6 +92,7 @@ CategoryContent.propTypes = {
     shape({
       path: string,
     }),
+  isMainPage: bool,
 };
 
 export default CategoryContent;

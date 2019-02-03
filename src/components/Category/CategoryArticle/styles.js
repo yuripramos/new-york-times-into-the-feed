@@ -47,6 +47,16 @@ export const Media = styled.img`
 
 `;
 
+export const Notice = styled.div`
+  font-family: "OpenSans Regular";
+  font-size: ${rem(20)};
+  color: ${red10};
+  text-align:center;
+  height: ${rem(50)};
+  display: inline-flex;
+  line-height: 45px;
+  margin: ${rem(5)};
+`;
 
 export const Title = styled.span`
   font-size: ${rem(30)};

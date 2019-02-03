@@ -30,7 +30,7 @@ function Default({ modalSettings, closeModal }) {
     <DefaultContainer>
       {icon && (
         <IconContainer>
-          <Icon name={icon} width="37" height="37" />
+          <Icon name={icon} width="37px" height="37px" />
         </IconContainer>
       )}
 
