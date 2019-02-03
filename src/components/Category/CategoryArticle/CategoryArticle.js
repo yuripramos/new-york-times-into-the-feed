@@ -8,7 +8,8 @@ import {
   PublishedDate,
   Author,
   Media,
-  Clicker
+  Clicker,
+  SubTitle
 } from "./styles";
 import { Container, Row, Column } from "../../../styles/grid";
 import { string, arrayOf, shape, number, func, bool } from "prop-types";
@@ -28,7 +29,7 @@ class CategoryContent extends Component {
   }
 
   render() {
-    const { content, match } = this.props;
+    const { content, match, isMainPage } = this.props;
     return (
       <ContentWrapper>
         <Container>
@@ -36,6 +37,7 @@ class CategoryContent extends Component {
             <Column>
               {content.map((e, i) => (
                 <CategoryWrapper key={`article-${e.section}-${i}`}>
+                  {isMainPage && <SubTitle>in {e.section} </SubTitle>}
                   <Clicker
                     to={`${match.path}/${this.getKeyFromShortenUrl(
                       e.short_url || e.url
@@ -48,11 +50,14 @@ class CategoryContent extends Component {
                   </PublishedDate>
                   {e.multimedia.length > 0 && (
                     <Media
-                      src={e.multimedia.length >3 ? e.multimedia[4].url : e.multimedia[2].url}
+                      src={
+                        e.multimedia.length > 3
+                          ? e.multimedia[4].url
+                          : e.multimedia[2].url
+                      }
                       alt="thumbnail"
                     />
-                  )
-                  }
+                  )}
                   <Author>{e.byline} </Author>
                 </CategoryWrapper>
               ))}

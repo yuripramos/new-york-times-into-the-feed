@@ -12,5 +12,5 @@ export default () => ({
     return {
       current: FeedArray.find(e => e.section === contextTitle)
     };
-  }
+  },
 });

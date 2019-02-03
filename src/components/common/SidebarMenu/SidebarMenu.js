@@ -28,34 +28,34 @@ class SidebarMenu extends Component {
         <Item
           data-test="Navbar_science"
           onClick={() => this.redirectTo("/science/hot")}
-          active={this.isActive("/science/hot")}
+          active={this.isActive("/science/")}
         >
           <Span>science</Span>
         </Item>
         <Item
           data-test="Navbar_technology"
           onClick={() => this.redirectTo("/technology/hot")}
-          active={this.isActive("/technology/hot")}
+          active={this.isActive("/technology/")}
         >
           <Span>technology</Span>
         </Item>
         <Item
           data-test="Navbar_health"
           onClick={() => this.redirectTo("/health/hot")}
-          active={this.isActive("/health/hot")}
+          active={this.isActive("/health/")}
         >
           <Span>health</Span>
         </Item>
         <Item
           data-test="Navbar_politics"
           onClick={() => this.redirectTo("/politics/hot")}
-          active={this.isActive("/politics/hot")}
+          active={this.isActive("/politics/")}
         >
           <Span>politics</Span>
         </Item>
         <Item
           onClick={() => this.redirectTo("/world/hot")}
-          active={this.isActive("/world/hot")}
+          active={this.isActive("/world/")}
         >
           <Span>world</Span>
         </Item>

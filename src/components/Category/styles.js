@@ -18,18 +18,3 @@ export const Title = styled.h1`
   color: ${trueBlack};
   margin-top: 0;
 `;
-
-export const SubTitle = styled.h2`
-  margin-top: ${rem(30)};
-  font-family: "RobotoSlab Thin";
-  font-weight: normal;
-  font-size: ${rem(16)};
-  color: ${grey10};
-  padding: ${rem(0)} ${rem(80)};
-`;
-
-export const Description = styled.span`
-  font-family: "RobotoSlab Thin";
-  font-size: ${rem(16)};
-  color: ${grey10};
-`;

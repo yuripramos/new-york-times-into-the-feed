@@ -27,11 +27,6 @@ class Header extends Component {
   render() {
     const {
       history,
-      scienceFeed,
-      technologyFeed,
-      healthFeed,
-      politicsFeed,
-      worldFeed
     } = this.props;
 
     return (
@@ -40,7 +35,6 @@ class Header extends Component {
           <Row>
             <Column>
               <TitleWrapper>
-                {/* <Title>The Newest York Times</Title> */}
                 <Icon name="Logo" color={black} width="490px" height="56px" />
               </TitleWrapper>
             </Column>

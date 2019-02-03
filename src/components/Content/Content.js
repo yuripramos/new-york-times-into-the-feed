@@ -1,36 +1,82 @@
 import React, { Component } from "react";
-import { ContentWrapper, Title, SubTitle } from "./styles";
+
+import CategoryArticle from "../Category/CategoryArticle";
+import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-import Button from "../common/Button";
+import { string, arrayOf, shape, number, func, bool } from "prop-types";
+import LocalLoading from "../common/LocalLoading";
+import { shuffleArticles } from "../../utils/formatArray";
 
 class Content extends Component {
-  async componentDidMount() {
-    const {
-      history,
-      scienceFeed,
-      technologyFeed,
-      healthFeed,
-      politicsFeed,
-      worldFeed
-    } = this.props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+    this._isMounted = false;
   }
+  componentWillReceiveProps() {
+    const { isFilled, FeedArray } = this.props;
+    const { isLoading } = this.state;
+    if (isLoading) {
+      this.setState({
+        isLoading: false
+      });
+    }
+  }
+
+  componentDidMount() {
+    const { isFilled, FeedArray } = this.props;
+    this._isMounted = true;
+    window.onpopstate = () => {
+      if (this._isMounted) {
+        this.setState({
+          isLoading: false
+        });
+      }
+    };
+  }
+
   render() {
+    const {
+      isFilled,
+      contextTitle,
+      FeedArray,
+      current,
+      match
+    } = this.props;
+    const { isLoading } = this.state;
     return (
       <ContentWrapper>
-        <Container>
-          <Row>
-            <Column>
-              <Title> Content Content Content Content Content</Title>
-              <SubTitle>subtitle Content Content Content</SubTitle>
-              <Button to={"/forecast"} opacity={1} isCallToAction>
-                start
-              </Button>
-            </Column>
-          </Row>
-        </Container>
+        {isFilled && (
+          <Container>
+            <Row>
+              <Column>
+                <Title>
+                  {isLoading ? (
+                    <LocalLoading />
+                  ) : (
+                    <CategoryArticle
+                      content={shuffleArticles(FeedArray)}
+                      isMainPage
+                    />
+                  )}
+                </Title>
+              </Column>
+            </Row>
+          </Container>
+        )}
       </ContentWrapper>
     );
   }
 }
+
+Content.defaultProps = {};
+
+Content.propTypes = {
+  filterByType: func,
+  contextTitle: string,
+  isFilled: bool,
+};
 
 export default Content;

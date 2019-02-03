@@ -109,7 +109,7 @@ class Routes extends Component {
                 path="/science/hot/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/science/all" render={scienceRoutes(Content)} />
+              <Route path="/science/all" render={scienceRoutes(Category)} />
               <Route
                 exact
                 path="/technology/hot"
@@ -121,7 +121,7 @@ class Routes extends Component {
               />
               <Route
                 path="/technology/all"
-                render={technologyRoutes(Content)}
+                render={technologyRoutes(Category)}
               />
               <Route
                 exact
@@ -132,7 +132,7 @@ class Routes extends Component {
                 path="/health/hot/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/health/all" render={healthRoutes(Content)} />
+              <Route path="/health/all" render={healthRoutes(Category)} />
               <Route
                 exact
                 path="/politics/hot"
@@ -144,7 +144,7 @@ class Routes extends Component {
               />
               <Route
                 path="/politics/all"
-                render={politicsRoutes(Content)}
+                render={politicsRoutes(Category)}
               />
               <Route
                 exact
@@ -155,7 +155,7 @@ class Routes extends Component {
                 path="/world/hot/:idArticle"
                 render={worldRoutes(CategoryArticleExpanded)}
               />
-              <Route path="/world/all" render={worldRoutes(Content)} />
+              <Route path="/world/all" render={worldRoutes(Category)} />
             </Switch>
           </Route>
         </Layout>

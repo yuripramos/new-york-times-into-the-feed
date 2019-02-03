@@ -4,7 +4,6 @@ import CategoryArticle from "./CategoryArticle";
 import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
 import { string, arrayOf, shape, number, func, bool } from "prop-types";
-import { translate } from "../../utils/i18n";
 import LocalLoading from "../common/LocalLoading";
 class Category extends Component {
   constructor(props) {
@@ -39,6 +38,7 @@ class Category extends Component {
     const { isFilled, contextTitle, FeedArray, current, match } = this.props;
     const { isLoading } = this.state;
     isFilled && this.props.filterByType(FeedArray, contextTitle);
+    const isHotNewsActive = match.path.includes("hot");
     return (
       <ContentWrapper>
         {isFilled && (
@@ -46,8 +46,16 @@ class Category extends Component {
             <Row>
               <Column>
                 <Title>
-                  {isLoading ? ( <LocalLoading /> ) : (
-                    <CategoryArticle  content={current.results.slice(0, 6)} />
+                  {isLoading ? (
+                    <LocalLoading />
+                  ) : (
+                    <CategoryArticle
+                      content={
+                        isHotNewsActive
+                          ? current.results.slice(0, 6)
+                          : current.results
+                      }
+                    />
                   )}
                 </Title>
               </Column>
