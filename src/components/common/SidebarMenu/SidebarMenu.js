@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { func, string, bool } from "prop-types";
+import { string } from "prop-types";
 import { redirect } from "../../../utils/redirect";
-
+import Icon from "../Icon";
 import { ListMenuItems, Item, Span } from "./styles";
-// import { translate } from "../../../utils/i18n";
+import { translate } from "../../../utils/i18n";
 
 class SidebarMenu extends Component {
   constructor(props) {
@@ -30,34 +30,39 @@ class SidebarMenu extends Component {
           onClick={() => this.redirectTo("/science/hot")}
           active={this.isActive("/science/")}
         >
-          <Span>science</Span>
+          <Span>{translate("SCIENCE")}</Span>
         </Item>
         <Item
           data-test="Navbar_technology"
           onClick={() => this.redirectTo("/technology/hot")}
           active={this.isActive("/technology/")}
         >
-          <Span>technology</Span>
+          <Span>{translate("TECHNOLOGY")}</Span>
         </Item>
         <Item
           data-test="Navbar_health"
           onClick={() => this.redirectTo("/health/hot")}
           active={this.isActive("/health/")}
         >
-          <Span>health</Span>
+          <Span>{translate("HEALTH")}</Span>
         </Item>
         <Item
           data-test="Navbar_politics"
           onClick={() => this.redirectTo("/politics/hot")}
           active={this.isActive("/politics/")}
         >
-          <Span>politics</Span>
+          <Span>{translate("POLITICS")}</Span>
         </Item>
         <Item
           onClick={() => this.redirectTo("/world/hot")}
           active={this.isActive("/world/")}
         >
-          <Span>world</Span>
+          <Span>{translate("WORLD")}</Span>
+        </Item>
+        <Item
+        >
+          <Icon name="FlagUSA" />
+          <Icon name="FlagSpain" />
         </Item>
       </ListMenuItems>
     );

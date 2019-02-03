@@ -1,3 +1,11 @@
 {
-  "SCIENCE": "Science"
+  "SCIENCE": "Ciencia",
+  "TECHNOLOGY": "Tecnología",
+  "HEALTH": "Salud",
+  "POLITICS": "Política",
+  "WORLD": "Mundo",
+  "TOP_TRENDS": "Las Tendencias",
+  "ALL": "Todos",
+  "MADE_WITH_LOVE": "hecho con 💛 por Yuri Ramos",
+  "ATTENTION_1": "esta página solo muestra las noticias más recientes de todas las secciones, para navegar, elija las secciones anteriores"
 }

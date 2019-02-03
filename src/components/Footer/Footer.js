@@ -1,7 +1,7 @@
 import React from "react";
 import { Signature, ContentWrapper } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-
+import { translate } from "../../utils/i18n/i18n";
 function Footer() {
   return (
     <ContentWrapper>
@@ -9,7 +9,7 @@ function Footer() {
         <Row />
         <Row>
           <Column>
-            <Signature>made with 💛 by Yuri Ramos</Signature>
+            <Signature>{translate("MADE_WITH_LOVE")}</Signature>
           </Column>
         </Row>
       </Container>

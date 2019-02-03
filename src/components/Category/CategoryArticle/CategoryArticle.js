@@ -1,6 +1,8 @@
 import React, { Component  } from "react";
 import moment from "moment";
 import Icon from "../../common/Icon";
+import { translate } from "../../../utils/i18n/i18n";
+
 import {
   ContentWrapper,
   Title,
@@ -39,14 +41,15 @@ class CategoryContent extends Component {
               {isMainPage && (
                 <Notice>
                   <Icon name="Attention" width="50px" height="50px" />
-                  This page only list the most recent news from all
-                  sections, to navigate choose the sections above
+                  {translate("ATTENTION_1")}
                 </Notice>
               )}
               {content.map((e, i) => (
                 <CategoryWrapper key={`article-${e.section}-${i}`}>
                   {isMainPage && <SubTitle>in {e.section} </SubTitle>}
-                  {isMainPage ? <Title>{e.title} </Title> : (
+                  {isMainPage ? (
+                    <Title>{e.title} </Title>
+                  ) : (
                     <Clicker
                       to={`${match.path}/${this.getKeyFromShortenUrl(
                         e.short_url || e.url

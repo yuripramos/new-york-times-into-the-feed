@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Subnav from "../../components/common/Subnav";
 import Category from "../Category";
 import CategoryArticleExpanded from "../Category/CategoryArticleExpanded";
+import { translate } from "../../utils/i18n/i18n";
 
 import Content from "../Content";
 
@@ -25,51 +26,51 @@ class Routes extends Component {
   render() {
     const scienceTabs = [
       {
-        text: "Top Trends",
+        text: translate("TOP_TRENDS"),
         url: "/science/hot"
       },
       {
-        text: "all",
+        text: translate("ALL"),
         url: "/science/all"
       }
     ];
     const technologyTabs = [
       {
-        text: "Top Trends",
+        text: translate("TOP_TRENDS"),
         url: "/technology/hot"
       },
       {
-        text: "all",
+        text: translate("ALL"),
         url: "/technology/all"
       }
     ];
     const healthTabs = [
       {
-        text: "Top Trends",
+        text: translate("TOP_TRENDS"),
         url: "/health/hot"
       },
       {
-        text: "all",
+        text: translate("ALL"),
         url: "/health/all"
       }
     ];
     const politicsTabs = [
       {
-        text: "Top Trends",
+        text: translate("TOP_TRENDS"),
         url: "/politics/hot"
       },
       {
-        text: "all",
+        text: translate("ALL"),
         url: "/politics/all"
       }
     ];
     const worldTabs = [
       {
-        text: "Top Trends",
+        text: translate("TOP_TRENDS"),
         url: "/world/hot"
       },
       {
-        text: "all",
+        text: translate("ALL"),
         url: "/world/all"
       }
     ];
