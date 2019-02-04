@@ -117,7 +117,8 @@
       "!src/services/history/*.js",
       "!src/app/index.js",
       "!src/services/*.js",
-      "!src/components/common/Icon/*.js"
+      "!src/components/common/Icon/*.js",
+      "!src/components/Routes/*.js"
     ],
     "reporters": [
       "default",

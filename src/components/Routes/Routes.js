@@ -24,6 +24,7 @@ const withRouteConfig = ({ tabs, contextTitle }) => Component =>
 
 class Routes extends Component {
   render() {
+    console.log("called routes");
     const scienceTabs = [
       {
         text: "Top Trends",

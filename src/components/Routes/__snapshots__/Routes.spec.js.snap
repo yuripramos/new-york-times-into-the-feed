@@ -3,13 +3,13 @@
 exports[`Routes component should match snapshot 1`] = `
 <Switch>
   <Layout>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
     <Route>
       <Switch>
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
+        />
         <Route
           exact={true}
           path="/science/hot"
@@ -99,6 +99,9 @@ exports[`Routes component should match snapshot 1`] = `
         <Route
           path="/world/all/:idArticle"
           render={[Function]}
+        />
+        <Route
+          component={[Function]}
         />
       </Switch>
     </Route>

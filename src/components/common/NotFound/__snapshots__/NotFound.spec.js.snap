@@ -5,30 +5,14 @@ exports[`NotFound component should match snapshot 1`] = `
   <DefaultContent
     Icon={[Function]}
     data-test="NotFound"
-    isIe={false}
-    primaryText="PAGE_NOT_FOUND"
+    primaryText="Page Not Found"
     secondaryTexts={
       Array [
-        "SORRY_PAGE_NOT_FOUND",
+        "Sorry Page Not Found",
       ]
     }
   >
-    <styled.div>
-      <Link
-        anchor={null}
-        disabled={false}
-        href={null}
-        isCallToAction={null}
-        loading={false}
-        onClick={null}
-        small={null}
-        target={null}
-        to="/exchanges/unsigned"
-        width="auto"
-      >
-        BACK_TO_HOME_SCREEN
-      </Link>
-    </styled.div>
+    <styled.div />
   </DefaultContent>
 </styled.div>
 `;
