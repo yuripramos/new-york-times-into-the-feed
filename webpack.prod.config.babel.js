@@ -16,7 +16,7 @@ const CleanPlugin = new CleanWebpackPlugin(["build"]);
 
 const DefinePlugin = new webpack.DefinePlugin({
   "process.env": {
-    NODE_ENV: JSON.stringify("production")
+    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
   },
   API_URL: JSON.stringify("https://api.nytimes.com/svc/topstories/v2"),
   SECRET_KEY: JSON.stringify("CWVf5pfTZPYZUKKPWYX9SW0ZZLMrtpgd")
