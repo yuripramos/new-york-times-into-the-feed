@@ -5,6 +5,7 @@ import { string } from "prop-types";
 import Logo from "./Logo";
 import Attention from "./Attention";
 import Close from "./Close";
+import NotFound from "./NotFound";
 
 const IconGenerator = props => {
   switch (props.name) {
@@ -14,6 +15,8 @@ const IconGenerator = props => {
       return <Attention {...props} />;
     case "Close":
       return <Close {...props} />;
+    case "NotFound":
+      return <NotFound {...props} />
     default:
       return;
   }

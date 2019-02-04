@@ -88,18 +88,4 @@ describe("CategoryArticleExpanded Component", () => {
 
     CategoryArticleExpanded.prototype.componentDidMount.restore();
   });
-
-  it("should call handleConfirmButton", () => {
-    spy(CategoryArticleExpanded.prototype, "handleConfirmButton");
-
-    const wrapper = mount(<CategoryArticleExpanded {...props} />);
-    wrapper.setState({ content: contentState }, () => {
-      wrapper.update();
-
-      wrapper.find(Link).simulate("click");
-      expect(CategoryArticleExpanded.prototype.handleConfirmButton.calledOnce);
-      expect(props.openModal).toHaveBeenCalled();
-      CategoryArticleExpanded.prototype.handleConfirmButton.restore();
-    });
-  });
 });

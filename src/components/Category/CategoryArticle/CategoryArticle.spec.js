@@ -43,7 +43,8 @@ beforeEach(() => {
     isMainPage: false,
     match: {
       path: "/science/hot"
-    }
+    },
+
   };
 });
 

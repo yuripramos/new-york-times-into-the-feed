@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Subnav from "../../components/common/Subnav";
 import Category from "../Category";
 import CategoryArticleExpanded from "../Category/CategoryArticleExpanded";
+import NotFound from "../common/NotFound";
 
 import Content from "../Content";
 
@@ -97,9 +98,9 @@ class Routes extends Component {
     return (
       <Switch>
         <Layout>
-          <Route exact path="/" component={Content} />
           <Route>
             <Switch>
+              <Route exact path="/" component={Content} />
               <Route
                 exact
                 path="/science/hot"
@@ -190,6 +191,7 @@ class Routes extends Component {
                 path="/world/all/:idArticle"
                 render={worldRoutes(CategoryArticleExpanded)}
               />
+              <Route component={NotFound} />
             </Switch>
           </Route>
         </Layout>

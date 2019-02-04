@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-
+import { spy } from "sinon";
 import Category from "./Category";
 import CategoryArticle from "./CategoryArticle";
 
@@ -88,6 +88,8 @@ describe("Category Component", () => {
     expect(props.filterByType).toHaveBeenCalled();
   });
   it("should render CategoryArticle Comp", () => {
+    spy(Category.prototype, "componentWillReceiveProps");
+    spy(Category.prototype, "componentDidMount");
     const wrapper = shallow(<Category {...props} />);
     wrapper.setState({ isLoading: false }, () => {
       wrapper.update();

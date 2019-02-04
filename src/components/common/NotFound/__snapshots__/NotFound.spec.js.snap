@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component should match snapshot 1`] = `
+<styled.div>
+  <DefaultContent
+    Icon={[Function]}
+    data-test="NotFound"
+    isIe={false}
+    primaryText="PAGE_NOT_FOUND"
+    secondaryTexts={
+      Array [
+        "SORRY_PAGE_NOT_FOUND",
+      ]
+    }
+  >
+    <styled.div>
+      <Link
+        anchor={null}
+        disabled={false}
+        href={null}
+        isCallToAction={null}
+        loading={false}
+        onClick={null}
+        small={null}
+        target={null}
+        to="/exchanges/unsigned"
+        width="auto"
+      >
+        BACK_TO_HOME_SCREEN
+      </Link>
+    </styled.div>
+  </DefaultContent>
+</styled.div>
+`;
