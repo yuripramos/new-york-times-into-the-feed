@@ -1,7 +1,10 @@
 import React from "react";
 
-import { shallow } from "enzyme";
+import { spy } from "sinon";
+import { shallow, mount } from "enzyme";
 import Content from "./Content";
+import CategoryArticle from "../Category/CategoryArticle";
+
 let props;
 beforeEach(() => {
   props = {
@@ -50,6 +53,23 @@ beforeEach(() => {
   };
 });
 
-it("should match snapshot", () => {
-  expect(shallow(<Content {...props} />)).toMatchSnapshot();
-});
+describe("Content Component", () =>{
+  it("should match snapshot", () => {
+    expect(shallow(<Content {...props} />)).toMatchSnapshot();
+  });
+
+  it("should setState to apply the content", () => {
+    spy(Content.prototype, "componentDidMount");
+    spy(Content.prototype, "componentWillReceiveProps");
+
+    const wrapper = mount(<Content {...props} />);
+    wrapper.setState({ isLoading: false }, () => {
+      wrapper.update();
+      expect(Content.prototype.componentDidMount.calledOnce);
+      expect(Content.prototype.componentWillReceiveProps.calledOnce);
+    });
+
+    Content.prototype.componentDidMount.restore();
+    Content.prototype.componentWillReceiveProps.restore();
+  });
+})

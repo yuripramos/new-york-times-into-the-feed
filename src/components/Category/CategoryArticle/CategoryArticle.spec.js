@@ -47,7 +47,7 @@ beforeEach(() => {
   };
 });
 
-describe("Category Component", () => {
+describe("CategoryArticle Component", () => {
   it("should match snapshot with props", () => {
     expect(shallow(<CategoryArticle {...props} />)).toMatchSnapshot();
   });

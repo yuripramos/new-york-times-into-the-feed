@@ -2,6 +2,7 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 
 import Category from "./Category";
+import CategoryArticle from "./CategoryArticle";
 
 let props;
 
@@ -85,5 +86,14 @@ describe("Category Component", () => {
     const wrapped = mount(<Category {...props} />);
     expect(wrapped.state()).toEqual({ isLoading: true });
     expect(props.filterByType).toHaveBeenCalled();
+  });
+  it("should render CategoryArticle Comp", () => {
+    const wrapper = shallow(<Category {...props} />);
+    wrapper.setState({ isLoading: false }, () => {
+      wrapper.update();
+      expect(Category.prototype.componentDidMount.calledOnce);
+      expect(Category.prototype.componentWillReceiveProps.calledOnce);
+      expect(wrapper.find(CategoryArticle).length).toBe(1);
+    });
   });
 });

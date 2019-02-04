@@ -97,15 +97,3 @@ exports[`SidebarMenu component should match snapshot for desktop 1`] = `
   </styled.div>
 </styled.div>
 `;
-
-exports[`closeArrow should return a component 1`] = `
-<styled.div>
-  <Icon
-    color={null}
-    fixCrossAxisAlign={null}
-    height="11.9"
-    type="Arrow"
-    width="11"
-  />
-</styled.div>
-`;

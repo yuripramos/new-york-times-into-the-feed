@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Category Component should match snapshot with props 1`] = `
+exports[`CategoryArticle Component should match snapshot with props 1`] = `
 <styled.div>
   <Container>
     <Row>
