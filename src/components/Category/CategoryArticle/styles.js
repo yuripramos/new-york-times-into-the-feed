@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { rem, media } from "../../../styles/tools";
+import styled from "styled-components";
+import { rem } from "../../../styles/tools";
 import { grey10, red10, black, darkestBlue } from "../../../styles/settings";
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,7 @@ export const CategoryWrapper = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   border-bottom: solid 1px ${grey10};
+  width: 100%;
   :nth-child(2n) {
     background: rgba(229, 229, 232, 0.1);
   }

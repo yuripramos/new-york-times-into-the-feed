@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import moment from "moment";
 import { MODAL_TYPES } from "../../common/Modal/Modal";
 import { hardRedirect } from "../../../utils/redirect";
+import { Container, Row, Column } from "../../../styles/grid";
+import { string, arrayOf, shape } from "prop-types";
 
 import {
   ContentWrapper,
@@ -14,8 +16,6 @@ import {
   Link,
   Description
 } from "./styles";
-import { Container, Row, Column } from "../../../styles/grid";
-import { string, arrayOf, shape } from "prop-types";
 
 class CategoryContentExpanded extends Component {
   constructor(props) {
@@ -70,12 +70,14 @@ class CategoryContentExpanded extends Component {
                     updated in:{" "}
                     {moment(content.published_date).format("LLL")}
                   </PublishedDate>
-                  <Media
-                    src={
-                      content.multimedia[4].url || content.multimedia[2].url
-                    }
-                    alt="thumbnail"
-                  />
+                  {content.multimedia.length > 0 && (
+                    <Media
+                      src={
+                        content.multimedia[4].url || content.multimedia[2].url
+                      }
+                      alt="thumbnail"
+                    />
+                  )}
                   <Description>
                     {content.abstract}
                   </Description>

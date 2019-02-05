@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { string, arrayOf, shape, object, func } from "prop-types";
+
 import { Wrapper, TabContainer, Tab, Text, ContextTitle } from "./styles";
 
 class Subnav extends Component {

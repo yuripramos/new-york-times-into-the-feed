@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { node } from "prop-types";
-
 import Header from "../../Header";
+
 import { Content } from "./styles";
 
 function Layout({ children }) {

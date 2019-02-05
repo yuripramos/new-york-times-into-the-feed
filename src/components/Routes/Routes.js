@@ -99,7 +99,7 @@ class Routes extends Component {
         <Layout>
           <Route>
             <Switch>
-              <Route exact path="/" component={Content} />
+              <Route exact path="/nyttop" component={Content} />
               <Route
                 exact
                 path="/science/hot"
@@ -136,12 +136,20 @@ class Routes extends Component {
                 path="/technology/all/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route exact path="/health/hot" render={healthRoutes(Category)} />
+              <Route
+                exact
+                path="/health/hot"
+                render={healthRoutes(Category)}
+              />
               <Route
                 path="/health/hot/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
               />
-              <Route exact path="/health/all" render={healthRoutes(Category)} />
+              <Route
+                exact
+                path="/health/all"
+                render={healthRoutes(Category)}
+              />
               <Route
                 path="/health/all/:idArticle"
                 render={scienceRoutes(CategoryArticleExpanded)}
@@ -164,12 +172,20 @@ class Routes extends Component {
                 path="/politics/all/:idArticle"
                 render={politicsRoutes(CategoryArticleExpanded)}
               />
-              <Route exact path="/world/hot" render={worldRoutes(Category)} />
+              <Route
+                exact
+                path="/world/hot"
+                render={worldRoutes(Category)}
+              />
               <Route
                 path="/world/hot/:idArticle"
                 render={worldRoutes(CategoryArticleExpanded)}
               />
-              <Route exact path="/world/all" render={worldRoutes(Category)} />
+              <Route
+                exact
+                path="/world/all"
+                render={worldRoutes(Category)}
+              />
               <Route
                 path="/world/all/:idArticle"
                 render={worldRoutes(CategoryArticleExpanded)}

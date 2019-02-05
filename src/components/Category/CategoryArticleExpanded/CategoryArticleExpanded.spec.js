@@ -3,7 +3,6 @@ import { shallow, mount } from "enzyme";
 
 import { spy } from "sinon";
 import CategoryArticleExpanded from "./CategoryArticleExpanded";
-import { Link } from "./styles";
 
 let props;
 

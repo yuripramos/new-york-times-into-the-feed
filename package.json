@@ -14,7 +14,7 @@
     "lint": "eslint ./src --fix",
     "check": "npm run lint && npm run test",
     "start:server": "node ./src/index.js",
-    "dev": "webpack-dev-server --port 3002 --inline --hot",
+    "dev": "webpack-dev-server --port 3000 --inline --hot",
     "build": "cross-env NODE_ENV=production & webpack"
   },
   "author": "Yuri Ramos <yuri.pramos@gmail.com>",

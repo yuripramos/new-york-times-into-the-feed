@@ -3,7 +3,6 @@ import React from "react";
 import { spy } from "sinon";
 import { shallow, mount } from "enzyme";
 import Content from "./Content";
-import CategoryArticle from "../Category/CategoryArticle";
 
 let props;
 beforeEach(() => {

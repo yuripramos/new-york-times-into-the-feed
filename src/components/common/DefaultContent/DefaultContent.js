@@ -1,5 +1,5 @@
 import React from "react";
-import { func, node, string, array, bool } from "prop-types";
+import { func, node, string, array } from "prop-types";
 import { generate } from "shortid";
 
 import {

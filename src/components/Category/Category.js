@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import CategoryArticle from "./CategoryArticle";
-import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-import { string, arrayOf, shape, func, bool } from "prop-types";
+import { string, arrayOf, shape, func, bool, oneOfType } from "prop-types";
 import LocalLoading from "../common/LocalLoading";
+
+import { ContentWrapper, Title } from "./styles";
 class Category extends Component {
   constructor(props) {
     super(props);
@@ -67,7 +68,9 @@ class Category extends Component {
   }
 }
 
-Category.defaultProps = {};
+  Category.defaultProps = {
+    current: false,
+  };
 
 Category.propTypes = {
   filterByType: func,
@@ -75,30 +78,36 @@ Category.propTypes = {
   isFilled: bool,
   FeedArray: arrayOf(
     shape({
-      results: arrayOf({
-        section: string,
-        abstract: string,
-        url: string,
-        published_date: string,
-        byline: string,
-        title: string
-      })
+      results: arrayOf(
+        shape({
+          section: string,
+          abstract: string,
+          url: string,
+          published_date: string,
+          byline: string,
+          title: string
+        })
+      )
     })
   ),
-  current: shape({
-    results: arrayOf({
-      section: string,
-      abstract: string,
-      url: string,
-      published_date: string,
-      byline: string,
-      title: string
-    })
-  }),
-  match:
+  current: oneOfType([
+    bool,
     shape({
-      path: string,
-    }),
+      results: arrayOf(
+        shape({
+          section: string,
+          abstract: string,
+          url: string,
+          published_date: string,
+          byline: string,
+          title: string
+        })
+      )
+    })
+  ]),
+  match: shape({
+    path: string
+  })
 };
 
 export default Category;

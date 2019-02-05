@@ -52,25 +52,6 @@ const getTopStoriesAPIResponse = [
   }
 ];
 
-const mockFilter = [
-  {
-    section: "technology",
-    abstract: "while ultraviolete fluor",
-    url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
-    published_date: "2019-02-01T12:42:18-05:00",
-    byline: "By VERONIQUE GREENWOOD",
-    title: "Flying Squirrels That Glow Pink in the Dark"
-  },
-  {
-    section: "technology",
-    abstract: "while usadasltraviolete fluor",
-    url: "http://www.nytimes.com/2019/02/01/science/red-glow",
-    published_date: "2019-02-01T12:42:16-05:00",
-    byline: "By BARBARIAN",
-    title: "Pink is the new white"
-  }
-]
-
 describe("News actions", () => {
   it("should return an action object", () => {
     expect(typeof actions() === "object").toBeTruthy();
@@ -116,13 +97,4 @@ describe("News actions", () => {
     });
   });
 
-  // describe("filterByType", () => {
-  //   it("Should filterByType according contextTitle", async () => {
-  //     const { filterByType } = actions();
-
-  //     expect(
-  //       filterByType("", getTopStoriesAPIResponse, "technology")
-  //     ).toEqual({ current: mockFilter });
-  //   });
-  // });
 });

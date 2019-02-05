@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { rem, media } from "../../styles/tools";
-import { trueBlack, grey10 } from "../../styles/settings";
+import { trueBlack } from "../../styles/settings";
 
 export const ContentWrapper = styled.div`
   text-align: center;

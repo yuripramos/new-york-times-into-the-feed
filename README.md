@@ -72,9 +72,9 @@ navigate through menu links at the header
 
 **Release 0.3** - Improvements in mobile devices screens
 
-**Release 0.4** - Enable full navigation through main page ("/")
+**Release 0.4** - Enable full navigation through main page ("/nyttop")
 
-**Release 0.5** - Enable support for 2 languages
+**Release 0.5** - Enable support for 2 languages(english and spanish)
 
 ## :exclamation: Credits
 

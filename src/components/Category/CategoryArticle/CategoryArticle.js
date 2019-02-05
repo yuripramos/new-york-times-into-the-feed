@@ -1,6 +1,9 @@
 import React, { Component  } from "react";
 import moment from "moment";
 import Icon from "../../common/Icon";
+import { Container, Row, Column } from "../../../styles/grid";
+import { string, arrayOf, shape, bool } from "prop-types";
+
 import {
   ContentWrapper,
   Title,
@@ -12,8 +15,6 @@ import {
   Notice,
   SubTitle
 } from "./styles";
-import { Container, Row, Column } from "../../../styles/grid";
-import { string, arrayOf, shape, bool } from "prop-types";
 
 class CategoryContent extends Component {
   constructor(props) {
@@ -78,14 +79,17 @@ class CategoryContent extends Component {
     );
   }
 }
-
+CategoryContent.defaultProps = {};
 
 CategoryContent.propTypes = {
   content: arrayOf(
     shape({
-      title: string,
+      section: string,
+      abstract: string,
+      url: string,
       published_date: string,
-      byline: string
+      byline: string,
+      title: string
     })
   ),
   match:

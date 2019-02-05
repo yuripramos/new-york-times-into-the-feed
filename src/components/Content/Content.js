@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 import CategoryArticle from "../Category/CategoryArticle";
-import { ContentWrapper, Title } from "./styles";
 import { Container, Row, Column } from "../../styles/grid";
-import { arrayOf, func, bool } from "prop-types";
+import { arrayOf, bool, shape, string, number } from "prop-types";
 import LocalLoading from "../common/LocalLoading";
 import { shuffleArticles } from "../../utils/formatArray";
+
+import { ContentWrapper, Title } from "./styles";
 
 class Content extends Component {
   constructor(props) {
@@ -69,9 +70,23 @@ class Content extends Component {
 Content.defaultProps = {};
 
 Content.propTypes = {
-  filterByType: func,
   isFilled: bool,
-  // FeedArray: arrayOf,
+  FeedArray: arrayOf(
+    shape({
+      title: string,
+      published_date: string,
+      byline: string,
+      url: string,
+      short_url: string,
+      multimedia: arrayOf(
+        shape({
+          url: string,
+          width: number,
+          height:number
+        })
+      )
+    })
+  ),
 };
 
 export default Content;

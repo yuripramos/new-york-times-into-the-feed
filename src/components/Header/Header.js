@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { shape, func, string, bool } from "prop-types";
+import { shape, func } from "prop-types";
 import { black } from "../../styles/settings";
-import { HeaderWrapper, Title, TitleWrapper } from "./styles";
 import Icon from "../common/Icon";
 import { Container, Row, Column } from "../../styles/grid";
 import SidebarMenu from "../common/SidebarMenu";
+
+import { HeaderWrapper, TitleWrapper } from "./styles";
 
 class Header extends Component {
   constructor(props) {
@@ -52,7 +53,6 @@ class Header extends Component {
 
 export default Header;
 
-Header.defaultProps = {};
 
 Header.propTypes = {
   topUserStories: func,
