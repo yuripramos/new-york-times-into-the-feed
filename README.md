@@ -24,9 +24,6 @@ This project was made focusing on the architecture of high scalable projects. Th
 
 :heavy_check_mark: Cross-Browser Solution! (even for MS Edge)
 
-
-
-
 Made with :heart: and Redux-zero.
 
 ## :fire: Why Redux-zero as a state manager?
@@ -41,8 +38,8 @@ I would like to share 3 arguments to choose redux-zero over redux.
 
 More about Redux-zero [here](https://medium.com/@matheusml/introducing-redux-zero-bea42214c7ee)
 
-
 ## :cloud: Installation
+
 Makefiles aren't Windows friendly, if you have minGW64 and whole environment to run the makefile(Unix/macOS) do this:
 
 ```sh
@@ -67,13 +64,13 @@ navigate through menu links at the header
 **Requires node >= 8.9.3**
 
 ## development env?
+
 ```sh
 npm install or yarn install
 npm run dev
 access http://localhost:3000/nyttop
 navigate through menu links at the header
 ```
-
 
 ## Tests
 
@@ -85,7 +82,8 @@ navigate through menu links at the header
 - Average ~= **76.5%**
 
 ## :fire: Docker?
-Due to modules incompatibility issues with webpack after a major update, I couldn't be able to deliver this project dockerized. I've already made the Dockerfile as you guys can see in the root of the project, but debugging more than 1800 deps inside node_modules is challenging in a short time
+
+Due to modules incompatibility issues with webpack after a major update, I couldn't be able to deliver this project dockerized. I've already made the Dockerfile as you guys can see in the root of the project, but debugging more than 1800 deps inside node_modules is challenging in a short time.
 
 ## Roadmap
 
