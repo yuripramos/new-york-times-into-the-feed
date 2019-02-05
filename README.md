@@ -43,17 +43,37 @@ More about Redux-zero [here](https://medium.com/@matheusml/introducing-redux-zer
 
 
 ## :cloud: Installation
+Makefiles aren't Windows friendly, if you have minGW64 and whole environment to run the makefile(Unix/macOS) do this:
 
 ```sh
-git clone https://github.com/yuripramos/new-york-times-into-the-feed
-cd new-york-times-into-the-feed
+make installation
+make build
+make start-server
+access http://localhost:3000/nyttop
+navigate through menu links at the header
+```
+
+If you **don't** have makefile enviroment ready, do this instead :
+
+```sh
+
 npm install or yarn install
-npm run start
-access http://localhost:3002
+npm run build
+npm run start:server
+access http://localhost:3000/nyttop
 navigate through menu links at the header
 ```
 
 **Requires node >= 8.9.3**
+
+## development env?
+```sh
+npm install or yarn install
+npm run dev
+access http://localhost:3000/nyttop
+navigate through menu links at the header
+```
+
 
 ## Tests
 
@@ -63,6 +83,9 @@ navigate through menu links at the header
 - % Lines = 79.53%
 
 - Average ~= **76.5%**
+
+## :fire: Docker?
+Due to modules incompatibility issues with webpack after a major update, I couldn't be able to deliver this project dockerized. I've already made the Dockerfile as you guys can see in the root of the project, but debugging more than 1800 deps inside node_modules is challenging in a short time
 
 ## Roadmap
 

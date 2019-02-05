@@ -1,5 +1,5 @@
 {
-  "name": "newestyorktimesFeed",
+  "name": "newest-york-times-feed",
   "version": "1.0.0",
   "description": "The Newest York Times App",
   "main": "/src/App.js",
@@ -7,6 +7,7 @@
     "node": ">=8.9.3"
   },
   "scripts": {
+    "installation": "npm install",
     "test": "cross-env NODE_ENV=test && jest",
     "test:update": "npm run test -- -u",
     "test:coverage": "jest --coverage --runInBand",
