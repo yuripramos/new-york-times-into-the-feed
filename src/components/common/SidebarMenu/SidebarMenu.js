@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { func, string, bool } from "prop-types";
+import { string } from "prop-types";
 import { redirect } from "../../../utils/redirect";
 
 import { ListMenuItems, Item, Span } from "./styles";
-// import { translate } from "../../../utils/i18n";
 
 class SidebarMenu extends Component {
   constructor(props) {
@@ -26,38 +25,38 @@ class SidebarMenu extends Component {
     return (
       <ListMenuItems>
         <Item
-          data-test="Navbar_science"
-          onClick={() => this.redirectTo("/science/hot")}
-          active={this.isActive("/science/hot")}
+          data-test="Navbar_politics"
+          onClick={() => this.redirectTo("/politics/hot")}
+          active={this.isActive("/politics/")}
         >
-          <Span>science</Span>
+          <Span>Politics</Span>
+        </Item>
+        <Item
+          onClick={() => this.redirectTo("/world/hot")}
+          active={this.isActive("/world/")}
+        >
+          <Span>World</Span>
         </Item>
         <Item
           data-test="Navbar_technology"
           onClick={() => this.redirectTo("/technology/hot")}
-          active={this.isActive("/technology/hot")}
+          active={this.isActive("/technology/")}
         >
-          <Span>technology</Span>
+          <Span>Technology</Span>
         </Item>
         <Item
           data-test="Navbar_health"
           onClick={() => this.redirectTo("/health/hot")}
-          active={this.isActive("/health/hot")}
+          active={this.isActive("/health/")}
         >
-          <Span>health</Span>
+          <Span>Health</Span>
         </Item>
         <Item
-          data-test="Navbar_politics"
-          onClick={() => this.redirectTo("/politics/hot")}
-          active={this.isActive("/politics/hot")}
+          data-test="Navbar_science"
+          onClick={() => this.redirectTo("/science/hot")}
+          active={this.isActive("/science/")}
         >
-          <Span>politics</Span>
-        </Item>
-        <Item
-          onClick={() => this.redirectTo("/world/hot")}
-          active={this.isActive("/world/hot")}
-        >
-          <Span>world</Span>
+          <Span>Science</Span>
         </Item>
       </ListMenuItems>
     );

@@ -1,40 +1,43 @@
 import React, { Component } from "react";
-import { SI } from "../constants";
+import { EN_US } from "../constants";
 
 let data = {};
-let unit;
+let language;
 
-export const INITIAL_UNIT = SI;
+export const storedLanguage =
+  sessionStorage.getItem("preferredLanguage");
+
+export const INITIAL_LANGUAGE = EN_US;
 
 export function setTranslations(translations) {
   data = translations;
   return data;
 }
 
-export function setUnit(u) {
-  unit = u;
-  sessionStorage.setItem("preferredUnits", u);
 
-  return unit;
+export function setLanguage(lang) {
+  language = lang;
+  sessionStorage.setItem("preferredLanguage", lang);
+
+  return language;
 }
 
-export function getUnit() {
-  return unit;
+export function getLanguage() {
+  return language;
 }
 
-export function isUS() {
-  return unit === "us";
+export function isEsES() {
+  return language === "es-ES";
 }
 
-export function isSI() {
-  return unit === "si";
+export function isEnUS() {
+  return language === "en-US";
 }
 
+export async function bootstrap(lang = INITIAL_LANGUAGE) {
+  setLanguage(lang);
 
-export async function bootstrap(unit = SI) {
-  setUnit(unit);
-
-  const i18nStatus = await require(`../../../i18n/${unit}.json`);
+  const i18nStatus = await require(`../../../i18n/${lang}.json`);
 
   return setTranslations(i18nStatus);
 }
@@ -53,34 +56,34 @@ export const withI18n = WrappedComponent => {
       };
     }
 
-    setUnit(unit = INITIAL_UNIT) {
-      setUnit(unit);
+    setLanguage(lang = INITIAL_LANGUAGE) {
+      setLanguage(lang);
       this.setState({ done: false });
 
-      return bootstrap(unit);
+      return bootstrap(lang);
     }
 
     async componentDidMount() {
       const self = this;
-      this.unlistenUnit = this.props.subscribe(async function(state) {
-        const unitProp =
-          state.unit
-            ? state.unit
-            : INITIAL_UNIT;
-        if (unitProp !== getUnit()) {
-          await self.setUnit(unitProp);
+      this.unlistenLanguage = this.props.subscribe(async function(state) {
+        const languageProp =
+          state.userInfo && state.userInfo.preferredLanguage
+            ? state.userInfo.preferredLanguage
+            : INITIAL_LANGUAGE;
+        if (languageProp !== getLanguage()) {
+          await self.setLanguage(languageProp);
           self.setState({ done: true });
 
-          return unitProp;
+          return languageProp;
         }
       });
 
-      await this.setUnit();
+      await this.setLanguage();
       this.setState({ done: true });
     }
 
     async componentWillUnmount() {
-      this.unlistenUnit();
+      this.unlistenLanguage();
     }
 
     render() {

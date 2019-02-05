@@ -5,9 +5,14 @@ import Header from "./Header";
 import newsActions from "../../actions/News";
 
 export default connect(
-  ({ topUserStories, section }) => ({
+  ({
     topUserStories,
-    section
+    isFilled,
+    FeedArray
+  }) => ({
+    topUserStories,
+    isFilled,
+    FeedArray
   }),
   newsActions
 )(withRouter(Header));

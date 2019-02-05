@@ -1,11 +1,12 @@
 import React from "react";
+/*eslint-disable*/
 
-function Attention() {
+function Attention({ height, width }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="140"
-      height="140"
+      width={width}
+      height={height}
       viewBox="0 0 140 140"
     >
       <g fill="currentColor" fillRule="nonzero">

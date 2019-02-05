@@ -1,194 +1,100 @@
 import actions from "./index";
 
-jest.mock("../../services/Forecast.js");
+jest.mock("../../services/News.js");
 
 
-const { getForwardGeoCode: getForwardGeoCodeAPI,
-  getForecastTimeMachine: getForecastTimeMachineAPI } = require("../../services/Forecast.js");
+const {
+  getTopStories: getTopStoriesAPI
+} = require("../../services/News.js");
 
-const getForwardGeoCodeAPIResponse = [
+const getTopStoriesAPIResponse = [
   {
-    components: {
-      city: "New York",
-      country: "USA"
-    }
+    results: [
+      {
+        section: "science",
+        abstract: "while ultraviolete fluor",
+        url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
+        published_date: "2019-02-01T12:42:18-05:00",
+        byline: "By VERONIQUE GREENWOOD",
+        title: "Flying Squirrels That Glow Pink in the Dark"
+      },
+      {
+        section: "science",
+        abstract: "while usadasltraviolete fluor",
+        url: "http://www.nytimes.com/2019/02/01/science/red-glow",
+        published_date: "2019-02-01T12:42:16-05:00",
+        byline: "By BARBARIAN",
+        title: "Pink is the new white"
+      }
+    ],
+    section: "science"
   },
   {
-    status: 200,
-    data: {
-      longitute: -1234.0,
-      latitude: 521521,
-      daily: {
-        data: [
-          {
-            temperatureHigh: 35,
-            temperatureLow: 18,
-            time: 2312321
-          },
-          {
-            temperatureHigh: 25,
-            temperatureLow: 8,
-            time: 2314441
-          }
-        ]
+    results: [
+      {
+        section: "technology",
+        abstract: "while ultraviolete fluor",
+        url: "http://www.nytimes.com/2019/02/01/science/pink-glow",
+        published_date: "2019-02-01T12:42:18-05:00",
+        byline: "By VERONIQUE GREENWOOD",
+        title: "Flying Squirrels That Glow Pink in the Dark"
       },
-      currently: {
-        apparentTemperature: 29,
-        time: 232121,
-        windSpeed: 2,
-        icon: "clear-day",
-        summary: "perfect day to code =)"
-      },
-      flags: {
-        units: "SI"
+      {
+        section: "technology",
+        abstract: "while usadasltraviolete fluor",
+        url: "http://www.nytimes.com/2019/02/01/science/red-glow",
+        published_date: "2019-02-01T12:42:16-05:00",
+        byline: "By BARBARIAN",
+        title: "Pink is the new white"
       }
-    }
+    ],
+    section: "technology"
   }
 ];
 
-const getForecastTimeMachineAPIResponse = [
-  {
-    currently: {
-      time: 214124,
-      icon: "fog",
-      temperature: 20
-    }
-  },
-  {
-    currently: {
-      time: 123124,
-      icon: "fog",
-      temperature: 10
-    }
-  }
-]
-
-
-describe("Forecast actions", () => {
+describe("News actions", () => {
   it("should return an action object", () => {
     expect(typeof actions() === "object").toBeTruthy();
-    expect(
-      Object.keys(actions())).toEqual([
-        "forwardGeocode",
-        "getForecastTimeMachine",
-        "handleUserInput",
-        "clearError",
-        "clearSearch",
-        "toggleForecast"
+    expect(Object.keys(actions())).toEqual([
+      "topUserStories",
+      "filterByType",
+    ]);
+  })
+
+  describe("topUserStories", () => {
+    it("Should topUserStories with success", async () => {
+      getTopStoriesAPI.mockImplementation(() =>
+        Promise.resolve(getTopStoriesAPIResponse)
+      );
+      const { topUserStories } = actions();
+
+      const response = await topUserStories([
+        "science",
+        "technology",
+        "health",
+        "politics",
+        "world"
       ]);
-  })
-
-  describe("forwardGeoCode", () => {
-    it("Should forwardGeoCode with success", async () => {
-      getForwardGeoCodeAPI.mockImplementation(() =>
-        Promise.resolve(getForwardGeoCodeAPIResponse)
-      );
-      const { forwardGeocode } = actions();
-
-      const state = {
-        citiesSearched: ["Los Angeles"],
-        search: {
-          city: "New York, USA"
-        }
-      };
-
-      const response = await forwardGeocode(state, "New York, USA");
-
-      expect(Object.keys(response)).toHaveLength(9);
-    })
-    it("Should forwardGeoCode with errors", async () => {
-      getForwardGeoCodeAPI.mockImplementation(() =>
-        Promise.resolve([{ empty: ""}, {empty: "" }])
-      );
-      const { forwardGeocode } = actions();
-
-      const state = {
-        citiesSearched: ["Los Angeles"],
-        search: {
-          city: "New York, USA"
-        }
-      };
-
-      const response = await forwardGeocode(state, "New York, USA");
-
-      expect(Object.keys(response)).toHaveLength(1);
-    })
-  })
-
-  describe("getForecastTimeMachine", () => {
-    it("Should getForecastTimeMachine with success", async () => {
-      getForecastTimeMachineAPI.mockImplementation(() =>
-        Promise.resolve(getForecastTimeMachineAPIResponse)
-      );
-      const { getForecastTimeMachine } = actions();
-
-      const state = {
-        citiesSearched: ["Los Angeles"],
-        search: {
-          city: "New York, USA"
-        }
-      };
-
-      const response = await getForecastTimeMachine(
-        state,
-        123213,
-        -23222
-      );
 
       expect(Object.keys(response)).toHaveLength(2);
     });
-  });
+    it("Should topUserStories with errors", async () => {
+      getTopStoriesAPI.mockImplementation(() =>
+        Promise.resolve([])
+      );
+      const { topUserStories } = actions();
 
-  describe("clearSearch", () => {
-    it("Should clearSearch with success", async () => {
-      const { clearSearch } = actions();
-      const state = clearSearch();
 
-      expect(state).toEqual({
-        search: {},
-        isTimeMachineActive: false,
+      const response = await topUserStories([
+        "science",
+        "technology",
+      ]);
+
+      expect(response).toEqual({
+        isFilled: getTopStoriesAPI.length > 0,
+        FeedArray: []
       });
     });
   });
 
-  describe("clearError", () => {
-    it("Should clearError with success", async () => {
-      const { clearError } = actions();
-      const state = clearError();
-
-      expect(state).toEqual({
-        isError: false
-      });
-    });
-  });
-  describe("handleUserInput", () => {
-    it("Should return the updated state search obj", () => {
-      const { handleUserInput } = actions();
-
-      const inputEvent = {
-        target: {
-          name: "city",
-          value: "Rio de Janeiro",
-          error: null
-        }
-      };
-
-      expect(handleUserInput({}, inputEvent)).toEqual({
-        search: {
-          city: "Rio de Janeiro"
-        }
-      });
-    });
-  });
-  describe("toggleForecast", () => {
-    it("Should return the updated state isTimeMachineActive", () => {
-      const { toggleForecast } = actions();
-
-      const state = {
-        isTimeMachineActive: false,
-      };
-
-      expect(toggleForecast(state)).toEqual({ isTimeMachineActive: true });
-    });
-  });
 });

@@ -16,9 +16,10 @@ const CleanPlugin = new CleanWebpackPlugin(["build"]);
 
 const DefinePlugin = new webpack.DefinePlugin({
   "process.env": {
-    NODE_ENV: JSON.stringify("production")
+    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
   },
-  API_URL: JSON.stringify("https://api.darksky.net/forecast")
+  API_URL: JSON.stringify("https://api.nytimes.com/svc/topstories/v2"),
+  SECRET_KEY: JSON.stringify("CWVf5pfTZPYZUKKPWYX9SW0ZZLMrtpgd")
 });
 
 const ExtractTextPluginCSS = new ExtractTextPlugin({
@@ -95,23 +96,37 @@ const config = {
     vendor: ["react", "react-dom"]
   },
   output: {
-    path: path.join(__dirname, "static"),
+    path: path.join(__dirname, "build"),
     filename: "bundle.[chunkhash].js",
     chunkFilename: "chunk.[chunkhash].js"
   },
   module: {
     rules: [
       {
-        test: /.jsx?$/,
-        loader: "babel-loader",
+        test: /.js$/,
         exclude: /node_modules/,
-        options: {
-          presets: ["es2015", "react"],
-          plugins: [
-            "transform-object-rest-spread",
-            "transform-async-to-generator"
-          ]
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              ["@babel/preset-env", { modules: false }],
+              "@babel/preset-react"
+            ],
+            plugins: [
+              "@babel/plugin-proposal-object-rest-spread",
+              "@babel/plugin-transform-async-to-generator"
+            ]
+          }
         }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -123,17 +138,11 @@ const config = {
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          loader: "css-loader",
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: "[hash:base64:5]",
-            minimize: {
-              discardComments: {
-                removeAll: true
-              }
-            }
-          }
+          fallback: "style-loader",
+          use: [
+            "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]",
+            "sass-loader"
+          ]
         })
       },
       {

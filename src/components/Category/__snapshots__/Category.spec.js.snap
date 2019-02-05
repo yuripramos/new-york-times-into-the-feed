@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category Component should match snapshot with props 1`] = `
+<styled.div>
+  <Container>
+    <Row>
+      <Column>
+        <styled.h1>
+          <LocalLoading />
+        </styled.h1>
+      </Column>
+    </Row>
+  </Container>
+</styled.div>
+`;

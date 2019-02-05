@@ -1,3 +1,12 @@
-import Content from "./Content";
+import { connect } from "redux-zero/react";
 
-export default Content;
+import Content from "./Content";
+import newsActions from "../../actions/News";
+
+export default connect(
+  ({ isFilled, FeedArray }) => ({
+    isFilled,
+    FeedArray,
+  }),
+  newsActions
+)(Content);

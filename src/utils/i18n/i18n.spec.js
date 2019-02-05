@@ -5,65 +5,84 @@ import {
   translate,
   bootstrap,
   withI18n,
-  setUnit,
-  getUnit,
   setTranslations,
-  isUS,
-  isSI
+  getLanguage,
+  setLanguage,
+  isEnUS,
+  isEsES
 } from "./index";
 
 jest.mock("../constants", () => ({
-  SI: "si"
+  IS_CLIENT: true,
+  EN_US: "en-US"
 }));
 
-jest.mock("../../../i18n/us.json", () => ({
+jest.mock("../../../i18n/en-US.json", () => ({
   SOMETHING: "alguma coisa"
 }));
 
 describe("i18n", () => {
   beforeEach(async () => {
-    setUnit("si");
+    setLanguage("en-US");
     await bootstrap();
   });
 
+  describe("bootstrap", () => {
+    it("Should get i18n object from server", async () => {
+      const response = await bootstrap();
+
+      expect(response).toEqual({ SOMETHING: "alguma coisa" });
+    });
+  });
 
   describe("setTranslations", () => {
     it("Should set the translations data", () => {
-      const translations = { TEMPERATURE: "°c" };
+      const translations = { INTERNET_BANKING: "Internet Banking" };
 
       expect(setTranslations(translations)).toEqual(translations);
     });
   });
 
-  describe("getUnit", () => {
-    it("Should return the current unit", () => {
-      setUnit("us");
-      const currentUnit = getUnit();
+  describe("getLanguage", () => {
+    it("Should return the current language", () => {
+      setLanguage("en-US");
+      const currentLanguage = getLanguage();
 
-      expect(currentUnit).toEqual("us");
+      expect(currentLanguage).toEqual("en-US");
     });
   });
 
-  describe("isSi", () => {
-    it("Should return true if unit is si", () => {
-      setUnit("si");
-      expect(isSI()).toEqual(true);
+  describe("isEsES", () => {
+    it("Should return true if language is es-ES", () => {
+      setLanguage("es-ES");
+      expect(isEsES()).toEqual(true);
     });
 
-    it("Should return false if unit is not si", () => {
-      setUnit("us");
-      expect(isSI()).toEqual(false);
+    it("Should return false if language is not es-ES", () => {
+      setLanguage("en-US");
+      expect(isEsES()).toEqual(false);
     });
   });
-  describe("isUs", () => {
-    it("Should return true if unit is us", () => {
-      setUnit("us");
-      expect(isUS()).toEqual(true);
+
+  describe("isEnUS", () => {
+    it("Should return true if language is en-US", () => {
+      setLanguage("en-US");
+      expect(isEnUS()).toEqual(true);
     });
 
-    it("Should return false if unit is not us", () => {
-      setUnit("si");
-      expect(isUS()).toEqual(false);
+    it("Should return false if language is not en-US", () => {
+      setLanguage("es-ES");
+      expect(isEnUS()).toEqual(false);
+    });
+  });
+
+  describe("translate", () => {
+    it("Should translate based on a i18n data object if key exists", () => {
+      expect(translate("SOMETHING")).toEqual("alguma coisa");
+    });
+
+    it("Shouldn't translate if key not exist", () => {
+      expect(translate("SOMETHINGs")).toBeUndefined();
     });
   });
 
@@ -104,9 +123,11 @@ describe("i18n", () => {
     it("Should set language when subscribe is triggered", done => {
       subscribe = jest.fn(callback =>
         callback({
-            unit: "us"
-        }).then(returnedUnit => {
-          expect(returnedUnit).toBe("us");
+          userInfo: {
+            preferredLanguage: "es-ES"
+          }
+        }).then(returnedLanguage => {
+          expect(returnedLanguage).toBe("es-ES");
           done();
         })
       );
@@ -117,6 +138,21 @@ describe("i18n", () => {
       mount(<WithI18n subscribe={subscribe} />);
     });
 
+    it("Should not set language when subscribe is triggered and unserInfo language is falsy", done => {
+      subscribe = jest.fn(callback =>
+        callback({
+          unserInfo: {}
+        }).then(returnedLanguage => {
+          expect(returnedLanguage).toBe(undefined);
+          done();
+        })
+      );
+
+      const TestingComponent = () => <div>done</div>;
+
+      const WithI18n = withI18n(TestingComponent);
+      mount(<WithI18n subscribe={subscribe} />);
+    });
 
     it("Should unlisten state when unmounted", done => {
       const unmountMock = jest.fn();

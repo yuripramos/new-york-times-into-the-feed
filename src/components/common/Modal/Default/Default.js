@@ -30,7 +30,7 @@ function Default({ modalSettings, closeModal }) {
     <DefaultContainer>
       {icon && (
         <IconContainer>
-          <Icon name={icon} width="37" height="37" />
+          <Icon name={icon} width="37px" height="37px" />
         </IconContainer>
       )}
 
@@ -44,7 +44,7 @@ function Default({ modalSettings, closeModal }) {
           onClose && onClose();
         }}
       >
-        <Icon name="close" width="14" height="14" />
+        <Icon name="Close" width="14" height="14" />
         <Close>Close</Close>
       </CloseBtn>
     </DefaultContainer>
@@ -56,7 +56,7 @@ Default.defaultProps = {
 };
 
 Default.propTypes = {
-  modal: oneOfType([
+  modalSettings: oneOfType([
     bool,
     shape({
       title: string,
@@ -64,7 +64,8 @@ Default.propTypes = {
       description: oneOfType([arrayOf(string), string]),
       onClose: func
     })
-  ])
+  ]),
+  closeModal: func
 };
 
 export default Default;

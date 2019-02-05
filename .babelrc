@@ -13,15 +13,13 @@
     "@babel/preset-react"
   ],
   "env": {
-    "testing": {
-      "plugins": ["babel-plugin-dynamic-import-node"],
+    "test": {
+      //until full migration of jest to babel 7 will necessary the use of "babel-plugin-dynamic-import-node",
+      //"@babel/plugin-syntax-dynamic-import" at the same time =(
+      "plugins": ["@babel/plugin-transform-modules-commonjs"],
       "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "modules": "commonjs"
-          }
-        ]
+        "@babel/preset-env",
+        "@babel/preset-react"
       ]
     },
     "production": {

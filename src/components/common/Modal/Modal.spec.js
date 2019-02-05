@@ -30,7 +30,7 @@ describe("Modal component", () => {
   it("should match snapshot with an open modal with icon", () => {
     const props = {
       modalSettings: {
-        icon: "close",
+        icon: "Close",
         isOpen: true
       }
     };

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultContent component should match snapshot 1`] = `
+<styled.div>
+  <styled.div>
+    <Icon />
+  </styled.div>
+  <styled.h3>
+    primary text
+  </styled.h3>
+  <styled.p
+    key="hash"
+  >
+    text
+  </styled.p>
+  <styled.p
+    key="hash"
+  >
+    more text
+  </styled.p>
+</styled.div>
+`;

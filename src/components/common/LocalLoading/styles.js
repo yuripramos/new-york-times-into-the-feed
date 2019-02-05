@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { white } from "../../../styles/settings";
+import { darkBlue } from "../../../styles/settings";
 import { rem } from "../../../styles/tools";
 
 const loading = keyframes`
@@ -15,6 +15,7 @@ const loading = keyframes`
 `;
 
 export const Wrapper = styled.div`
+  margin-top: ${rem(40)};
   position: relative;
   height: ${rem(40)};
 `;
@@ -27,13 +28,14 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Bar = styled.div`
+
   display: inline-block;
-  width: ${rem(3)};
-  height: ${rem(18)};
+  width: ${rem(8)};
+  height: ${rem(50)};
   margin: 0 ${rem(2)};
-  border-radius: ${rem(4)};
+  border-radius: ${rem(5)};
   animation: ${loading} 1s ease-in-out infinite;
-  background-color: ${white};
+  background-color: ${darkBlue};
 
   :nth-child(1) {
     animation-delay: 0;

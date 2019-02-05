@@ -6,5 +6,5 @@ export const SCREEN_XXS = 319;
 export const TRUE = "True";
 export const FALSE = "False";
 export const BOOLEAN = "boolean";
-export const SI = "si";
-export const US = "us";
+export const ES_ES = "es-ES";
+export const EN_US = "en-US";
