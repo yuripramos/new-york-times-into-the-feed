@@ -81,10 +81,6 @@ navigate through menu links at the header
 
 - Average ~= **76.5%**
 
-## :fire: Docker?
-
-Due to modules incompatibility issues with webpack after a major update, I couldn't be able to deliver this project dockerized. I've already made the Dockerfile as you guys can see in the root of the project, but debugging more than 1800 deps inside node_modules is challenging in a short time.
-
 ## Roadmap
 
 **Release 0.1** (current) - First release of the app
