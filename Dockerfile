@@ -4,7 +4,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 WORKDIR /app
 
-COPY ./package* ./
+COPY ./package.json ./package.json
 
 RUN npm install
 

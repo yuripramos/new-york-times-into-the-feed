@@ -8,7 +8,7 @@ This project was made focusing on the architecture of high scalable projects. Th
 
 :heavy_check_mark: Styled-Components
 
-:heavy_check_mark: Webpack@3
+:heavy_check_mark: Webpack
 
 :heavy_check_mark: Dynamic Routes
 
@@ -80,6 +80,12 @@ navigate through menu links at the header
 - % Lines = 79.53%
 
 - Average ~= **76.5%**
+
+## :whale: Docker Container
+
+```sh
+docker run --rm -p 3000:3000 gemyny/nytintothefeed
+```
 
 ## Roadmap
 

@@ -1,12 +1,10 @@
 require("babel-polyfill");
 import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 import CleanWebpackPlugin from "clean-webpack-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import webpack from "webpack";
-
-const CleanPlugin = new CleanWebpackPlugin(["build"]);
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, "index.html"),
@@ -14,9 +12,11 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: "body"
 });
 
+const CleanPlugin = new CleanWebpackPlugin(["build"]);
+
 const DefinePlugin = new webpack.DefinePlugin({
   "process.env": {
-    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+    NODE_ENV: JSON.stringify("development")
   },
   API_URL: JSON.stringify("https://api.nytimes.com/svc/topstories/v2"),
   SECRET_KEY: JSON.stringify("CWVf5pfTZPYZUKKPWYX9SW0ZZLMrtpgd")
@@ -26,6 +26,11 @@ const ExtractTextPluginCSS = new ExtractTextPlugin({
   filename: "style.[chunkhash].css",
   allChunks: true,
   ignoreOrder: true
+});
+
+const ProvidePlugin = new webpack.ProvidePlugin({
+  $: "jquery",
+  jQuery: "jquery"
 });
 
 const FaviconPlugin = new FaviconsWebpackPlugin({
@@ -45,10 +50,10 @@ const FaviconPlugin = new FaviconsWebpackPlugin({
 });
 
 const config = {
-  entry: { main: "./src/app/index.js" },
+  entry: "./src/app/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "[hash].js"
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -106,10 +111,11 @@ const config = {
   },
   plugins: [
     CleanPlugin,
+    HTMLWebpackPluginConfig,
     DefinePlugin,
-    FaviconPlugin,
     ExtractTextPluginCSS,
-    HTMLWebpackPluginConfig
+    ProvidePlugin,
+    FaviconPlugin
   ],
   devtool: "source-map"
 };

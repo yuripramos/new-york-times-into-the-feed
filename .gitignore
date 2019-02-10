@@ -4,6 +4,7 @@ jspm_packages
 build
 coverage
 package-lock.json
+*.zip
+*.rar
 #Photoshop Files
 psd/
-*.zip

@@ -37,7 +37,7 @@ export function isEnUS() {
 export async function bootstrap(lang = INITIAL_LANGUAGE) {
   setLanguage(lang);
 
-  const i18nStatus = await require(`../../../i18n/${lang}.json`);
+  const i18nStatus = await require('../../../i18n/'+lang+'.json');
 
   return setTranslations(i18nStatus);
 }

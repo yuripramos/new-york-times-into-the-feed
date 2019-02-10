@@ -5,11 +5,7 @@ import Header from "./Header";
 import newsActions from "../../actions/News";
 
 export default connect(
-  ({
-    topUserStories,
-    isFilled,
-    FeedArray
-  }) => ({
+  ({ topUserStories, isFilled, FeedArray }) => ({
     topUserStories,
     isFilled,
     FeedArray
