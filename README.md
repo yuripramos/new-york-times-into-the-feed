@@ -8,7 +8,7 @@ This project was made focusing on the architecture of high scalable projects. Th
 
 :heavy_check_mark: Styled-Components
 
-:heavy_check_mark: Webpack@3
+:heavy_check_mark: Webpack
 
 :heavy_check_mark: Dynamic Routes
 
