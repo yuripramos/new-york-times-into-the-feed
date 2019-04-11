@@ -2,6 +2,8 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
+![Landing Page](Capture1.jpg)
+
 ## :octocat: Getting Started
 
 This project was made focusing on the architecture of high scalable projects. The App itself is small but is 100% ready to get as big as possible
